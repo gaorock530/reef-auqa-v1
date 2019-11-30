@@ -1,0 +1,56 @@
+header {
+  position: fixed;
+  height: $header;
+  width: 100%;
+  background: $bg-color-4;
+  z-index: 998;
+  user-select: none;
+}
+
+.header-wrapper {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.header-menu {
+  position: relative;
+  text-align: center;
+  color: $Cyberpunk-custom-3-hex;
+  font-size: $h3;
+  width: 35px;
+}
+
+.header-title {
+  position: relative;
+  padding: 0 10px;
+  color: $Cyberpunk-custom-3-hex;
+  font-size: $h3;
+  flex: 1;
+}
+
+.header-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0 5px;
+  button {
+    width: $icon-header;
+    height: $icon-header; 
+    border: 1px solid $bg-color-2;
+    border-radius: 50%;
+    background-image: linear-gradient(#aa2233, #44ff22);
+  }
+  a {
+    font-size: $h3;
+    color: $font-color-2;
+  }
+}

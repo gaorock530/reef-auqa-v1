@@ -1,0 +1,66 @@
+.robot-wrapper {
+  position: relative;
+  width: 100%;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  border: 2px solid rgba($bg-color-2, 0.5);
+  margin: 20px 0;
+  border-radius: 5px;
+}
+
+.robot-text {
+  position: relative;
+  top: 0;
+  left: 60px;
+  font-size: $h3;
+  z-index: 0;
+  color: $bg-color-2;
+}
+
+.robot-block {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 4rem;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 4px;
+  cursor: grabbing;
+  z-index: 2;
+  color: $font-color-4;
+  background-image: linear-gradient(0deg, $bg-color-1 0%, $bg-color-2 100%,);
+}
+
+.robot-block.checking:before{
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border: 2px solid $font-color-4;
+  border-radius: 50%;
+  animation: move 250ms linear infinite;
+}
+
+
+.robot-rolling {
+  position: absolute;
+  height: 100%;
+  width: 0;
+  top: 0;
+  left: 0;
+  border-radius: 4px 0 0 4px;
+  background-color: $font-color-2;
+  z-index: 1;
+}
+
+@keyframes move {
+  0% {
+    transform: scale(0);
+  }
+  100%{
+    transform: scale(1);
+  }
+}

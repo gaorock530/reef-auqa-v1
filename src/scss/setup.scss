@@ -1,0 +1,84 @@
+*, ::before, ::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*:disabled {
+  cursor: not-allowed;
+}
+
+
+html {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 12px;
+  background-color: $bg-color-light;
+}
+
+video::-webkit-media-controls,
+video::-webkit-media-controls-panel,
+video::-webkit-media-controls-start-playback-button,
+video::-webkit-media-controls-overlay-play-button {
+    display: none !important;
+    appearance: none;
+    opacity: 0;
+}
+
+
+a, 
+a:-webkit-any-link, 
+a:visited, 
+a:link, 
+a:hover, 
+a:active,
+a:focus {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+button {
+  appearance: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.main-wrapper {
+  position: relative;
+  padding-top: $header;
+  overflow: hidden;
+  color: $font-color-dark;
+}
+
+.main-wrapper-container {
+  position: relative;
+  padding: 10px;
+}
+
+.body-screen-wrapper {
+  position: fixed;
+  z-index: 999;
+}
+
+.body-screen {
+  position: absolute;
+  visibility: hidden;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0;
+  background-color: $transparent-1;
+  transition: all 200ms ease-in-out;
+
+  &.show {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+.button {
+  cursor: pointer;
+}
+

@@ -1,0 +1,102 @@
+/* Header Height */
+$header: 5rem;
+$side-width: 20rem;
+
+$side-scroll-height: calc(100vh - 5rem);
+
+$icon-header: 3.5rem;
+
+/* Font Size */
+$h1: 1.5rem;
+$h2: 1.4rem;
+$h3: 1.3rem;
+$h4: 1.2rem;
+$h5: 1.1rem;
+$h6: 1rem;
+$h7: 0.9rem;
+$h8: 0.8rem;
+
+/* Color Theme Swatches in Hex */
+$Cyberpunk-custom-1-hex: #F80CC6;
+$Cyberpunk-custom-2-hex: #241241;
+$Cyberpunk-custom-3-hex: #A390EB;
+$Cyberpunk-custom-4-hex: #0D61EB;
+$Cyberpunk-custom-5-hex: #0EFFF4;
+
+/* Color Theme Swatches in RGBA */
+$Cyberpunk-custom-1-rgba: rgba(247,11,198, 1);
+$Cyberpunk-custom-2-rgba: rgba(35,17,65, 1);
+$Cyberpunk-custom-3-rgba: rgba(163,144,235, 1);
+$Cyberpunk-custom-4-rgba: rgba(13,96,235, 1);
+$Cyberpunk-custom-5-rgba: rgba(14,255,244, 1);
+
+/* Color Theme Swatches in HSLA */
+$Cyberpunk-custom-1-hsla: hsla(312, 94, 50, 1);
+$Cyberpunk-custom-2-hsla: hsla(262, 56, 16, 1);
+$Cyberpunk-custom-3-hsla: hsla(252, 69, 74, 1);
+$Cyberpunk-custom-4-hsla: hsla(217, 89, 48, 1);
+$Cyberpunk-custom-5-hsla: hsla(177, 100, 52, 1);
+
+/* Color Theme Swatches in Hex */
+$Neon-facial-portraits-1-hex: #F21B2D;
+$Neon-facial-portraits-2-hex: #F2163E;
+$Neon-facial-portraits-3-hex: #732C39;
+$Neon-facial-portraits-4-hex: #BF5A92;
+$Neon-facial-portraits-5-hex: #F2B33D;
+
+/* Color Theme Swatches in RGBA */
+$Neon-facial-portraits-1-rgba: rgba(242,26,44, 1);
+$Neon-facial-portraits-2-rgba: rgba(242,21,62, 1);
+$Neon-facial-portraits-3-rgba: rgba(114,43,56, 1);
+$Neon-facial-portraits-4-rgba: rgba(191,89,145, 1);
+$Neon-facial-portraits-5-rgba: rgba(242,178,60, 1);
+
+/* Color Theme Swatches in HSLA */
+$Neon-facial-portraits-1-hsla: hsla(354, 89, 52, 1);
+$Neon-facial-portraits-2-hsla: hsla(348, 89, 51, 1);
+$Neon-facial-portraits-3-hsla: hsla(348, 44, 31, 1);
+$Neon-facial-portraits-4-hsla: hsla(326, 44, 55, 1);
+$Neon-facial-portraits-5-hsla: hsla(39, 87, 59, 1);
+
+/* Color Theme Swatches in Hex */
+$illustration-1-hex: #F072F2;
+$illustration-2-hex: #3E2F73;
+$illustration-3-hex: #0D0A26;
+$illustration-4-hex: #1C1740;
+$illustration-5-hex: #0D0D0D;
+
+/* Color Theme Swatches in RGBA */
+$illustration-1-rgba: rgba(240,113,242, 1);
+$illustration-2-rgba: rgba(61,47,114, 1);
+$illustration-3-rgba: rgba(13,9,38, 1);
+$illustration-4-rgba: rgba(28,22,63, 1);
+$illustration-5-rgba: rgba(12,12,12, 1);
+
+/* Color Theme Swatches in HSLA */
+$illustration-1-hsla: hsla(298, 83, 69, 1);
+$illustration-2-hsla: hsla(253, 41, 31, 1);
+$illustration-3-hsla: hsla(247, 60, 9, 1);
+$illustration-4-hsla: hsla(247, 47, 17, 1);
+$illustration-5-hsla: hsla(0, 0, 5, 1);
+
+
+/* Theme Color Collection */
+$bg-color-light: #fafafa;
+$bg-color-dark: #000;
+$bg-color-1: $Cyberpunk-custom-2-hex;
+$bg-color-2: $illustration-2-hex;
+$bg-color-3: $illustration-3-hex;
+$bg-color-4: $illustration-4-hex;
+$bg-color-5: $illustration-5-hex;
+
+$font-color-light: #fafafa;
+$font-color-dark: #000;
+$font-color-1: $Cyberpunk-custom-1-hex;
+$font-color-2: $Cyberpunk-custom-3-hex;
+$font-color-3: $Cyberpunk-custom-4-hex;
+$font-color-4: $Neon-facial-portraits-1-hex;
+$font-color-5: $illustration-1-hex;
+$font-color-6: $Neon-facial-portraits-5-hex;
+
+$transparent-1: rgba(0,0,0, 0.9);
+$transparent-2: rgba($Cyberpunk-custom-2-hex, 0.2);

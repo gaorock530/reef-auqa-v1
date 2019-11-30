@@ -1,0 +1,36 @@
+.video-header {
+  position: relative;
+  width: 100vw;
+  left: -10px;
+  top: -10px;
+  max-height: 750px;
+  overflow: hidden;
+  video {
+    position: relative;
+    width: 100%;
+    z-index: 0;
+    vertical-align: middle;
+    border: none;
+  }
+}
+
+.video-header-poster {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/assets/pic/chasingcoralherobanner-736x414.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.video-header-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(#000, 0.8);
+}

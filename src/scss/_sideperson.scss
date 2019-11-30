@@ -1,0 +1,67 @@
+.side-person-header {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  span {
+    display: inline-block;
+    color: $font-color-2;
+    padding: 5px;
+    font-size: $h5;
+    flex: 1;
+    word-break: break-all;
+  }
+
+  picture {
+    margin: 0 5px;
+    width: $icon-header;
+    height: $icon-header; 
+    border: 1px solid $bg-color-2;
+    border-radius: 50%;
+    background-image: linear-gradient(#aa2233, #44ff22);
+  }
+}
+
+
+.side-footer.warning {
+  h5 {
+    word-break: break-all;
+  }
+}
+
+
+/* person Level */
+.side-item-level {
+  position: relative;
+  height: 10px;
+  border: 1px solid $font-color-2;
+  flex: 3;
+  border-radius: 10px;
+
+  .level-value {
+    position: absolute;
+    left: 0;
+    height: 100%;
+    width: 85%;
+    background-color: $font-color-2;
+  }
+}
+
+
+.message-no {
+  display: flex;
+  align-items: center;
+
+  i {
+    line-height: $h8;
+    padding: 1px 3px 2px 3px;
+    font-size: $h8;
+    color: $font-color-light;
+    background-color: $font-color-4;
+    border-radius: 5px;
+    margin-left: 5px;
+  }
+}
+
+  

@@ -1,0 +1,124 @@
+.sidebar-wrapper {
+  position: fixed;
+  max-height: 100vh;
+  width: $side-width;
+  background: $bg-color-light;
+  z-index: 1000;
+  transition: transform 200ms ease-in-out, opacity 200ms ease-in-out;
+  user-select: none;
+  opacity: 1;
+  box-shadow: 0 0 1px rgba($bg-color-3, 0.5);
+
+  &.person {
+    right: 0;
+    opacity: 1;
+    transform: translateX($side-width);
+  }
+}
+
+.sidebar-wrapper.show, .sidebar-wrapper.person.show {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.sidebar-wrapper.hide {
+  transform: translateX(-$side-width);
+  opacity: 0;
+}
+
+.sidebar-wrapper.person.hide {
+  transform: translateX($side-width);
+  opacity: 0;
+}
+
+.side-header {
+  position: relative;
+  height: $header;
+  width: 100%;
+  background: $bg-color-4;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  box-shadow: 0 0 5px $transparent-1;
+}
+
+
+
+
+.side-main {
+  position: relative;
+  display: flex;
+  height: $side-scroll-height;
+  color: $font-color-dark;
+  font-size: $h3;
+  // overflow-y: scroll;
+}
+
+.side-scroll {
+  word-wrap: break-word;
+  padding: 5px;
+}
+
+.side-section {
+  padding: 10px 5px;
+  border-bottom: 1px solid rgba($bg-color-1, 0.1);
+
+  &.tags a {
+    display: inline-block;
+    font-size: $h5;
+    padding: 3px;
+    color: #666;
+    word-break: keep-all;
+
+    &:hover{color: #000}
+  }
+}
+
+.side-group-title {
+  padding: 3px;
+  color: rgba($font-color-2, 0.7);
+  font-size: $h2;
+}
+
+.side-footer {
+  padding: 10px 5px;
+  font-size: $h5;
+  word-break: keep-all;
+  color: #666;
+  h5 {
+    font-weight: normal;
+  }
+  a {
+    display: inline-block;
+    color: #666;
+    &:hover{color: #000}
+  }
+}
+
+.side-item {
+  display: flex;
+  align-items: center;
+  padding: 8px 0;
+  margin: 5px 0;
+  color: $font-color-2;
+  cursor: pointer;
+
+  &:hover {
+    color: $bg-color-3;
+  }
+  
+  div {
+    font-size: $h7;
+    width: 35px;
+    text-align: center;
+    cursor: pointer;
+  }
+  
+
+  label {
+    font-size: $h3;
+    padding: 0 10px;
+    flex: 1;
+    cursor: pointer;
+  }
+}
