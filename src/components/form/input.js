@@ -10,19 +10,22 @@ import { faCheck, faTimes, faMobileAlt, faEnvelope, faKey, faUser, faEyeSlash, f
  * @param {Function} props.validate
  * @param {Boolean} props.forceError
  * @param {Function} props.onChange
- * @param {String} props.icon ['phone', 'email', 'pass', 'setPass', 'user', 'key']
+ * @param {String|Object} props.icon ['phone', 'email', 'pass', 'setPass', 'user', 'key']
  * @param {Boolean} props.autoFocus
+ * @param {String|Number} props.defaultValue
+ * @param {String|Number} props.value
  */
+
 
 export default class Input extends React.PureComponent {
   constructor (props) {
     super(props);
-    this.type = 'text';
+    this.type = this.props.type || 'text';
 
     this.state = {
       visible: false,
       pass: 0,
-      value: '',
+      value: this.props.defaultValue === undefined?'':this.props.defaultValue,
     }
 
     this.wrapper = React.createRef()
@@ -59,7 +62,7 @@ export default class Input extends React.PureComponent {
       case 'key':
         return faKey;
       default:
-        return faPencilAlt
+        return value || faPencilAlt
     }
   }
 
@@ -113,17 +116,19 @@ export default class Input extends React.PureComponent {
 
     return (
       <div className={wrapperStyle} ref={this.wrapper}>
-        <div className={beforeStyle} onClick={this.toggleVisible}><FontAwesomeIcon icon={beforeIcon} size="2x"/></div>
+        {this.props.icon && <div className={beforeStyle} onClick={this.toggleVisible}><FontAwesomeIcon icon={beforeIcon} size="2x"/></div>}
         <input
           type={this.type} 
           onFocus={this.onFocus} 
           onBlur={this.onBlur} 
           disabled={this.props.disabled} 
           onChange={this.onChange} 
-          value={this.state.value}
+          value={this.props.value !==undefined?this.props.value:this.state.value}
+          // defaultValue={this.props.defaultValue}
           maxLength={this.props.max || null} 
           placeholder={this.props.placeholder || ''} 
           autoComplete="false"
+          validate="false"
           spellCheck="false"
           ref={this.input}
         />

@@ -19,7 +19,8 @@ export default ({onSendForm, phone}) => {
     if (!valid) return
     setCodeStatus(1)
     setTimeout(() => {
-      setCode(String(Math.floor(Math.random()*999999)))
+      // setCode(String(Math.floor(Math.random()*999999)))
+      setCode('123456')
       setCodeStatus(2)
     }, 2000) 
   }

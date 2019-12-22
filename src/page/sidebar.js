@@ -1,11 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import CustomScroll from 'react-custom-scroll'
 import {Link} from 'react-router-dom'
+import {AuthContext, TOGGLE_SIDE_BAR} from '../context/LoginContext'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { 
   faBars, faFish, faEyeDropper, faImages, faVial, faTint, faCapsules, faHandsHelping, faDragon, faSignature,
-  faRulerVertical, faHeart, faStar, faComments, faTools, faBook, faWater, faDownload, faPastafarianism
+  faRulerVertical, faHeart, faStar, faComments, faTools, faBook, faWater, faDownload, faSeedling, faBug
 } from '@fortawesome/free-solid-svg-icons'
 
 
@@ -13,78 +14,79 @@ const items = [
   {
     title: '记录',
     list: [
-      { id: 'a1', icon: faImages, label: '鱼缸', to: 'tank' },
-      { id: 'a2', icon: faFish, label: '生物', to: '' },
-      { id: 'a3', icon: faTools, label: '设备', to: '' },
-      { id: 'a4', icon: faBook, label: '分享', to: '' },
-      { id: 'a5', icon: faVial, label: '水质', to: '' },
+      { id: 'a1', icon: faImages, label: '鱼缸', to: 'tanks' },
+      { id: 'a2', icon: faDragon, label: '生物', to: 'add/livestock/' },
+      { id: 'a3', icon: faTools, label: '设备', to: 'add/equipment/' },
+      { id: 'a4', icon: faBook, label: '分享', to: 'post' },
+      { id: 'a5', icon: faVial, label: '水质', to: 'add/test/' },
     ]
   },
   {
     title: '交流',
     list: [
-      { id: 'a6', icon: faHeart, label: '赞', to: '' },
-      { id: 'a7', icon: faStar, label: '收藏', to: '' },
-      { id: 'a8', icon: faComments, label: '留言', to: '' },
+      { id: 'a6', icon: faHeart, label: '赞', to: 'thumbsup' },
+      { id: 'a7', icon: faStar, label: '收藏', to: 'fevorite' },
+      { id: 'a8', icon: faComments, label: '留言', to: 'comment' },
     ]
   },
   {
     title: '资料',
     list: [
-      { id: 'a6', icon: faDragon, label: '鱼类', to: '' },
-      { id: 'a8', icon: faSignature, label: '珊瑚', to: '' },
-      { id: 'a9', icon: faPastafarianism, label: '除藻类', to: '' },
+      { id: 'a6', icon: faFish, label: '鱼类', to: 'fishes' },
+      { id: 'a8', icon: faSignature, label: '珊瑚', to: 'corals' },
+      { id: 'a9', icon: faSeedling, label: '除藻类', to: 'cleanupcrew' },
+      { id: 'a10', icon: faBug, label: '其他生物', to: 'otherpests' },
     ]
   },
   {
     title: '工具',
     list: [
-      { id: 'a6', icon: faCapsules, label: '药剂添加计算', to: '' },
-      { id: 'a7', icon: faRulerVertical, label: '玻璃厚度计算', to: '' },
-      { id: 'a8', icon: faTint, label: '水流计算', to: '' },
-      { id: 'a9', icon: faEyeDropper, label: '海盐计算', to: '' },
+      { id: 'a6', icon: faCapsules, label: '药剂添加计算', to: 'dose' },
+      { id: 'a7', icon: faRulerVertical, label: '玻璃厚度计算', to: 'glass' },
+      { id: 'a8', icon: faTint, label: '水流计算', to: 'flow' },
+      { id: 'a9', icon: faEyeDropper, label: '海盐计算', to: 'salt' },
     ]
   },
   {
     title: '报告',
     list: [
-      { id: 'a6', icon: faWater, label: '自来水水质', to: '' },
+      { id: 'a6', icon: faWater, label: '自来水水质', to: 'tapwater' },
     ]
   },
   {
     title: '帮助',
     list: [
-      { id: 'a6', icon: faHandsHelping, label: '教程', to: '' },
-      { id: 'a7', icon: faDownload, label: '下载', to: '' },
+      { id: 'a6', icon: faHandsHelping, label: '教程', to: 'tutorial' },
+      { id: 'a7', icon: faDownload, label: '下载', to: 'downloads' },
     ]
   },
 
 ]
 
 const tags1 = [
-  {id: 's1', label: '关于', to: ''},
-  {id: 's2', label: '加入', to: ''},
-  {id: 's3', label: '推广', to: ''},
-  {id: 's4', label: '品牌', to: ''},
-  {id: 's5', label: '广告', to: ''},
-  {id: 's6', label: '活动', to: ''},
+  {id: 's1', label: '关于', to: 'aboutus'},
+  {id: 's2', label: '加入', to: 'joinus'},
+  {id: 's3', label: '推广', to: 'promote'},
+  {id: 's4', label: '品牌', to: 'brand'},
+  {id: 's5', label: '广告', to: 'ads'},
+  {id: 's6', label: '活动', to: 'activity'},
 ]
 
 const tags2 = [
-  {id: 'd1', label: '开发者', to: ''},
-  {id: 'd2', label: '版权', to: ''},
-  {id: 'd5', label: '报错', to: ''},
-  {id: 'd6', label: '举报', to: ''},
-  {id: 'd3', label: '政策与安全', to: ''},
-  {id: 'd4', label: '条款与声明', to: ''},
+  {id: 'd1', label: '开发者', to: 'development'},
+  {id: 'd2', label: '版权', to: 'copyrights'},
+  {id: 'd5', label: '报错', to: 'reporterror'},
+  {id: 'd6', label: '举报', to: 'accusation'},
+  {id: 'd3', label: '政策与安全', to: 'policy'},
+  {id: 'd4', label: '条款与声明', to: 'terms'},
   
 ]
 
-const RenderTag = ({tags}) => tags.map(tag => <Link key={tag.id} to={tag.to}>{tag.label}</Link>)
+const RenderTag = ({tags}) => tags.map(tag => <Link key={tag.id} to={'/'+tag.to}>{tag.label}</Link>)
 
 const RenderItem = ({group}) => group.map(item => {
   return (
-    <Link className="side-item" key={item.id} to={item.to}>
+    <Link className="side-item" key={item.id} to={'/'+item.to}>
       <div><FontAwesomeIcon icon={item.icon} size="2x"/></div>
       <label>{item.label}</label>
     </Link>
@@ -125,34 +127,51 @@ const Scroll = ({onToggle}) => {
   )
 }
 
-
-export default class SideBar extends React.Component {
-  
-
-  shouldComponentUpdate (nextProps) {
-    if (this.show !== nextProps.show) {
-      this.show = nextProps.show
-      return true
-    }
-    return false
-  }
-  
-  render () {
-    const status = this.props.show? 'show':'hide'
-    return (
-      <aside className={`sidebar-wrapper ${status}`}>
-        <div className="side-header">
-          <div className="header-menu button" onClick={this.props.onHideBar}><FontAwesomeIcon icon={faBars} size="2x"/></div>
-          <div className="header-title">MagicAqua</div>
-        </div>
-        <div className="side-main">
+export default () => {
+  const [{sideBar}, dispatch] = useContext(AuthContext)
+  const status = sideBar? 'show':'hide'
+  return (
+    <aside className={`sidebar-wrapper ${status}`}>
+      <div className="side-header">
+        <div className="header-menu button" onClick={() => dispatch({type: TOGGLE_SIDE_BAR})}><FontAwesomeIcon icon={faBars} size="2x"/></div>
+        <div className="header-title">MagicAqua</div>
+      </div>
+      <div className="side-main">
         <CustomScroll flex="1" allowOuterScroll={false}>
-          {this.props.show && <Scroll onToggle={this.props.onHideBar}/>}
+          {sideBar && <Scroll onToggle={() => dispatch({type: TOGGLE_SIDE_BAR})}/>}
         </CustomScroll>
-        </div>
-        
-      </aside>
-    )
-  }
-  
+      </div>
+      
+    </aside>
+  )
 }
+// export default class SideBar extends React.Component {
+  
+
+//   shouldComponentUpdate (nextProps) {
+//     if (this.show !== nextProps.show) {
+//       this.show = nextProps.show
+//       return true
+//     }
+//     return false
+//   }
+  
+//   render () {
+//     const status = this.props.show? 'show':'hide'
+//     return (
+//       <aside className={`sidebar-wrapper ${status}`}>
+//         <div className="side-header">
+//           <div className="header-menu button" onClick={this.props.onHideBar}><FontAwesomeIcon icon={faBars} size="2x"/></div>
+//           <div className="header-title">MagicAqua</div>
+//         </div>
+//         <div className="side-main">
+//           <CustomScroll flex="1" allowOuterScroll={false}>
+//             {this.props.show && <Scroll onToggle={this.props.onHideBar}/>}
+//           </CustomScroll>
+//         </div>
+        
+//       </aside>
+//     )
+//   }
+  
+// }

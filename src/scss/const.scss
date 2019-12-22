@@ -5,6 +5,7 @@ $side-width: 20rem;
 $side-scroll-height: calc(100vh - 5rem);
 
 $icon-header: 3.5rem;
+$view-width: 1200px;
 
 /* Font Size */
 $h1: 1.5rem;
@@ -81,7 +82,7 @@ $illustration-5-hsla: hsla(0, 0, 5, 1);
 
 
 /* Theme Color Collection */
-$bg-color-light: #fafafa;
+$bg-color-light: #eee;
 $bg-color-dark: #000;
 $bg-color-1: $Cyberpunk-custom-2-hex;
 $bg-color-2: $illustration-2-hex;

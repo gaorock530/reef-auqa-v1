@@ -1,4 +1,5 @@
-import React from 'react'
+import React, {useContext} from 'react'
+import {AuthContext, LOGOUT, TOGGLE_PERSON_BAR} from '../context/LoginContext'
 import CustomScroll from 'react-custom-scroll'
 import {Link} from 'react-router-dom'
 import {useHistory} from "react-router-dom";
@@ -42,23 +43,24 @@ const RenderGroup = ({gourpList}) => gourpList.map((group, idx) =>
     <RenderItem group={group.list}/>
   </div>)
 
-const Scroll = ({onToggle, onLogout}) => {
+const Scroll = () => {
   const history = useHistory()
+  const [, dispatch] = useContext(AuthContext)
 
   const onClick = e => {
     let el = e.target
     for (let i=0;i<4;i++) {
       if (el.tagName === 'A') {
-        onToggle()
+        dispatch({type: TOGGLE_PERSON_BAR})
         break
       }
       el = el.parentElement
     }
   }
+
   const logout = () => {
     localStorage.removeItem('id')
-    onToggle()
-    onLogout()
+    dispatch({type: LOGOUT})
     history.push("/")
   }
 
@@ -134,36 +136,59 @@ const Scroll = ({onToggle, onLogout}) => {
   }, */
 }
 
-
-export default class SideBar extends React.Component {
-  
-
-  shouldComponentUpdate (nextProps) {
-    if (this.show !== nextProps.show) {
-      this.show = nextProps.show
-      return true
-    }
-    return false
-  }
-  
-  render () {
-    const status = this.props.show? 'show':'hide'
-    return (
-      <aside className={`sidebar-wrapper person ${status}`}>
-        <div className="side-header" onClick={this.props.onHideBar}>
-          <div className="side-person-header">
-            <span>{this.props.user || '为哦啊是看到了靠阿斯'}</span>
-            <picture></picture>
-          </div>
+export default () => {
+  const [{personBar, user, login}, dispatch] = useContext(AuthContext)
+  const status = personBar? 'show':'hide'
+  return login?(
+    <aside className={`sidebar-wrapper person ${status}`}>
+      <div className="side-header" onClick={() => dispatch({type: TOGGLE_PERSON_BAR})}>
+        <div className="side-person-header">
+          <span>{user || '为哦啊是看到了靠阿斯'}</span>
+          <picture></picture>
         </div>
-        <div className="side-main">
-        <CustomScroll flex="1" allowOuterScroll={false}>
-          {this.props.show && <Scroll onToggle={this.props.onHideBar} onLogout={this.props.onLogout} />}
-        </CustomScroll>
-        </div>
-        
-      </aside>
-    )
-  }
-  
+      </div>
+      <div className="side-main">
+      <CustomScroll flex="1" allowOuterScroll={false}>
+        {personBar && <Scroll/>}
+      </CustomScroll>
+      </div>
+      
+    </aside>
+  ): null
 }
+
+
+
+
+// export default class SideBar extends React.Component {
+  
+
+//   shouldComponentUpdate (nextProps) {
+//     if (this.show !== nextProps.show) {
+//       this.show = nextProps.show
+//       return true
+//     }
+//     return false
+//   }
+  
+//   render () {
+//     const status = this.props.show? 'show':'hide'
+//     return (
+//       <aside className={`sidebar-wrapper person ${status}`}>
+//         <div className="side-header" onClick={this.props.onHideBar}>
+//           <div className="side-person-header">
+//             <span>{this.props.user || '为哦啊是看到了靠阿斯'}</span>
+//             <picture></picture>
+//           </div>
+//         </div>
+//         <div className="side-main">
+//         <CustomScroll flex="1" allowOuterScroll={false}>
+//           {this.props.show && <Scroll onToggle={this.props.onHideBar} onLogout={this.props.onLogout} />}
+//         </CustomScroll>
+//         </div>
+        
+//       </aside>
+//     )
+//   }
+  
+// }

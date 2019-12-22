@@ -1,32 +1,24 @@
-import React, {useState, useEffect} from 'react'
+import React, { useEffect, useContext } from 'react'
+import {AuthContext, LOGIN} from '../../context/LoginContext'
 import Spinner from '../animate/spinner'
 
-export default ({data, onSeccess}) => {
-  
+export default ({data}) => {
 
-  const [verifying, setVerifying] = useState(true)
-  const [seccess, setSeccess] = useState(false)
-  
+  const [, dispatch] = useContext(AuthContext)
   
   useEffect(() => {
-    console.log(data)
     let timer = setTimeout(() => {
-      setVerifying(false)
-      const isSeccess = Math.random() >= 0
-      
-      if (isSeccess) onSeccess(123, data)
-      else setSeccess(isSeccess)
+      localStorage.setItem('id', 123)
+      dispatch({type: LOGIN, payload: data.name.v})
     }, 2000)
 
     return () => {
       clearTimeout(timer)
       timer = null
     }
-  })
+  }, [dispatch, data])
 
   return (
-    <div>
-      {verifying?<Spinner />:<div>{seccess?'注册成功': '注册失败'}</div>}
-    </div>
+    <Spinner />
   )
 }

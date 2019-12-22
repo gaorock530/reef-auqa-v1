@@ -17,6 +17,7 @@ html {
   -moz-osx-font-smoothing: grayscale;
   font-size: 12px;
   background-color: $bg-color-light;
+  // background-image: linear-gradient($font-color-3,$font-color-2,$font-color-3);
 }
 
 video::-webkit-media-controls,
@@ -46,11 +47,16 @@ button {
   cursor: pointer;
 }
 
+.noselect {
+  user-select: none;
+}
+
 .main-wrapper {
   position: relative;
   padding-top: $header;
   overflow: hidden;
   color: $font-color-dark;
+  z-index: 1;
 }
 
 .main-wrapper-container {
@@ -78,7 +84,41 @@ button {
   }
 }
 
-.button {
-  cursor: pointer;
+.constrained {
+  position: relative;
+  width: 100%;
+  max-width: $view-width;
+  margin: 0 auto;
+}
+
+.constrained--small {
+  position: relative;
+  width: 100%;
+  max-width: 450px;
+  margin: 0 auto;
+}
+
+.constrained, .constrained--small {
+  h3 {
+    font-size: 1.3rem;
+    font-weight: normal;
+    color: #241241;
+  }
+}
+
+.vertical {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.green {
+  background-color: green;
+}
+.yellow {
+  background-color: yellow;
+}
+.red {
+  background-color: red;
 }
 

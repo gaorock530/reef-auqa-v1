@@ -1,0 +1,58 @@
+.file-input-wrapper {
+  position: relative;
+  height: 300px;
+  margin: 20px 0;
+  border: 2px dashed rgba($bg-color-2, 0.5);
+  border-radius: 5px;
+
+  img {
+    position: relative;
+    display: block;
+    left: -80%;
+  }
+  
+}
+
+.file-input {
+  width: 0.1px !important;
+  height: 0.1px !important;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.file-input-target, .file-input-target--withclass {
+  position: relative;
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  // justify-content: center;
+  // align-items: center;
+  span {
+    position: absolute;
+    color: $font-color-2;
+    display: block;
+    padding: 5px 10px;
+    font-size: $h3;
+    background-color: rgba(#000, 0.8);
+    border-radius: 10px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+  }
+}
+
+.file-input-target {
+  height: 100%;
+  padding: 0 !important;
+}
+
+.file-input-target--withclass {
+  padding-top: 56.25%;
+}

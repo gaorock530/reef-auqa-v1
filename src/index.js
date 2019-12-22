@@ -8,7 +8,7 @@ import * as serviceWorker from './serviceWorker';
 ReactDOM.render(
 <Error>
   <StrictMode>
-    <Suspense fallback={<div>Main loading...</div>}>
+    <Suspense fallback={<div>loading...</div>}>
       <App />
     </Suspense>
   </StrictMode>

@@ -1,23 +1,32 @@
-import React, {useRef, useEffect} from 'react'
-import {Helmet} from "react-helmet";
+import React, {useRef, useEffect, useContext} from 'react'
+import {AuthContext} from '../context/LoginContext'
+import {Helmet} from "react-helmet-async";
+import {isApple} from '../helper/constVar'
 import Body from './body'
 
-export default ({page}) => {
+export default () => {
   const video = useRef()
   const cover = useRef()
-  const isApple = /iPhone|iPod|iPad/.test(navigator.userAgent)
-  console.log(page)
+  const [{page}] = useContext(AuthContext)
+  
+  const playvideo = () => {
+    video.current.play()
+    if (isApple) cover.current.style.display = 'none'
+  }
+
+  // console.log(page)
   useEffect(() => {
-    document.addEventListener('touchstart', () => {
-      video.current.play()
-      if (isApple) cover.current.style.display = 'none'
-    }, {once: true})
-  })
+    document.addEventListener('touchstart', playvideo, {once: true})
+    return () => {
+      document.removeEventListener('touchstart', playvideo)
+    }
+  }, [])
 
   return (
     <Body>
       <Helmet>
         <title>{page}</title>
+        <meta name="description" content="ReefAqua" />
       </Helmet>
       <div className="video-header">
         <video ref={video} preload="auto" playsInline autoPlay loop muted poster="assets/pic/chasingcoralherobanner-736x414.jpg" controls={false}>
