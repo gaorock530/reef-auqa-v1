@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons'
 import Static from './form/static'
 import Input from './form/input'
+
 /**
  * @param {Array} props.data 
  * @param {Function} props.onAdd 
@@ -10,6 +11,15 @@ import Input from './form/input'
  * @param {Function} props.onChange 
  * @param {Function} props.onSubmit
  */
+
+export default function addFrom ({data = [], onAdd, onDel, onChange, onSubmit}) {
+  return (
+    <form className="noselect" noValidate onSubmit={onSubmit}>
+      <RenderItems data={data} onAdd={onAdd} onDel={onDel} onChange={onChange}/>
+      <button>完成添加</button>
+    </form>
+  )
+}
 
 function RenderItems ({onAdd, onDel, onChange, data}) {
 
@@ -25,11 +35,3 @@ function RenderItems ({onAdd, onDel, onChange, data}) {
   ))
 }
 
-export default function addFrom ({data = [], onAdd, onDel, onChange, onSubmit}) {
-  return (
-    <form className="noselect" noValidate onSubmit={onSubmit}>
-      <RenderItems data={data} onAdd={onAdd} onDel={onDel} onChange={onChange}/>
-      <button>完成添加</button>
-    </form>
-  )
-}

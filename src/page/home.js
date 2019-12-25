@@ -1,6 +1,6 @@
 import React, {useRef, useEffect, useContext} from 'react'
 import {AuthContext} from '../context/LoginContext'
-import {Helmet} from "react-helmet-async";
+import {Helmet} from "react-helmet";
 import {isApple} from '../helper/constVar'
 import Body from './body'
 

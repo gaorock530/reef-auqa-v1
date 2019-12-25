@@ -37,14 +37,15 @@ const Tank = ({item}) => (
   </Link>
 )
 
-export default ({page}) => {
+export default () => {
   const data = useTanksFromLocal()
+  const title = "我的鱼缸"
 
   return (
     <Body>
       <Helmet>
-        <title>我的鱼缸</title>
-        <meta name="description" content="ReefAqua 我的鱼缸" />
+        <title>{title}</title>
+        <meta name="description" content={`ReefAqua ${title}`} />
       </Helmet>
       {data?(data.length>0?<Tanks data={data}/>:
       <span className="tank-tips">

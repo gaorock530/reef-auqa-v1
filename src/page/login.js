@@ -1,7 +1,7 @@
 import React, {useState, useContext, useRef} from 'react'
 import {AuthContext,} from '../context/LoginContext'
 import {useLocation, Redirect} from "react-router-dom";
-import {Helmet} from "react-helmet-async";
+import {Helmet} from "react-helmet";
 import Body from './body'
 
 import Stage1 from '../components/login/stage1'

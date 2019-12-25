@@ -7,7 +7,7 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons'
  * @param {Function} props.onAddItem 
  */
 
-export default function AddItem ({onAddItem, layerData}) {
+export default function AddItem ({onAddItem, layerData, label}) {
   const initL2 = getArray(layerData[1], layerData[0], 0)
   const initL3 = getArray(layerData[2], initL2, 0)
   const [layer, setLayer] = useState({l2: initL2, l3: initL3})
@@ -51,7 +51,7 @@ export default function AddItem ({onAddItem, layerData}) {
       </div>
       <Select options={layer.l3} onChange={onChange.bind(this, 'l3')} valueProp="fullname"/>
       <div className="tank-view-cover live-display" style={{backgroundImage: `url('/assets/pic/tankcover.png')`}}></div>
-      <button onClick={onAdd}>添加生物</button>
+      <button onClick={onAdd}>{label}</button>
     </div>
   )
 }

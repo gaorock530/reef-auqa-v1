@@ -20,6 +20,11 @@ const PersonSideBar = lazy(() => import('./page/personalSidebar'))
 const Tanks = lazy(() => import('./page/routes/tanks'))
 const TankCreate = lazy(() => import('./page/routes/tank_create'))
 const TankView = lazy(() => import('./page/routes/tank_view/index'))
+const Blogs = lazy(() => import('./page/routes/blogs'))
+const BlogCreate = lazy(() => import('./page/routes/blog_create'))
+const BlogView = lazy(() => import('./page/routes/blog_view'))
+
+
 
 // tools
 const Drug = lazy(() => import('./page/routes/measure_drug/index'))
@@ -35,6 +40,7 @@ const AddEquipment = lazy(() => import('./page/routes/add_equipment'))
 
 // personal
 const PersonalDetails = lazy(() => import('./page/routes/personal'))
+
 
 export default () => {
 
@@ -52,6 +58,7 @@ export default () => {
             <Switch>
             <Route path="/" exact><Home/></Route>
             <Route path="/login" exact><Login/></Route>
+
             <Route path="/dose" exact><Drug/></Route>
             <Route path="/glass" exact><Glass/></Route>
             <Route path="/flow" exact><Flow/></Route>
@@ -61,6 +68,10 @@ export default () => {
             <Protected path="/tank/create" exact><TankCreate/></Protected>
             <Route path="/tank/:id" exact><TankView/></Route>
 
+            <Protected path="/blogs" exact><Blogs/></Protected>
+            <Protected path="/blog/create" exact><BlogCreate/></Protected>
+            <Route path="/blog/:id" exact><BlogView/></Route>
+
             <Protected path="/add/test/:id"><AddTest/></Protected>
             <Protected path="/add/test/"><AddTest/></Protected>
             <Protected path="/add/livestock/:id"><AddLivestock/></Protected>
@@ -69,6 +80,7 @@ export default () => {
             <Protected path="/add/equipment/"><AddEquipment/></Protected>
             
             <Protected path="/mydetails" exact><PersonalDetails/></Protected>
+
             
             <Route path="*"><NotFound/></Route>
           </Switch> 
@@ -77,77 +89,3 @@ export default () => {
     </AuthProvider>
   )
 }
-
-// class App extends React.PureComponent {
-//   constructor (props) {
-//     super(props)
-//     this.state = {
-//       sideBar: false,
-//       personBar: false,
-//     }
-    
-//   }
-
-//   componentDidMount () {
-//     // console.log('start')
-//     // process.socket = new WebSocket('ws://localhost:3000')
-//     // if (!this.state.login) {
-//     //   // setTimeout(() => {this.setState({login: true})}, 5000)
-//     //   // localStorage.setItem('id', true)
-//     // }
-//     // const login = localStorage.getItem('id')
-//     // if (login) this.setState({login: true})
-
-//   }
-
-//   componentDidUpdate() {
-//     // console.log('update')
-//   }
-
-//   onLogin = (user) => {
-//     // console.log(user)
-//     this.setState({login: true, username: user.name.v})
-//   }
-
-//   onLogout = () => {
-//     this.setState({login: false, username: null})
-//   }
-
-//   render () {
-//     const {login, sideBar, personBar, username} = this.state
-
-//     return (
-//       <AuthProvider>
-//         <Router>
-//           <Header onShowBar={() => this.setState({sideBar: true})} onShowPerson={() => this.setState({personBar: true})}/>
-//           <Sidebar show={sideBar} onHideBar={() => this.setState({sideBar: false})} />
-//           <Screen show={sideBar || personBar} onHideBar={() => this.setState({sideBar: false, personBar: false})}/>
-//           {login && <PersonSideBar user={username} show={personBar} onHideBar={() => this.setState({personBar: false})} onLogout={this.onLogout}/>}
-//           <Suspense fallback={<Spinner/>}>
-//             <Switch>
-//               <Route path="/" exact><Home page={page}/></Route>
-//               <Route path="/login" exact><Login onLogin={this.onLogin} page={page} login={login}/></Route>
-//               <Route path="/dose" exact><Drug page={page}/></Route>
-//               <Route path="/glass" exact><Glass page={page}/></Route>
-//               <Route path="/flow" exact><Flow page={page}/></Route>
-//               <Route path="/salt" exact><Salt page={page}/></Route>
-
-//               <Protected path="/tanks" exact login={login}><Tanks page={page}/></Protected>
-//               <Protected path="/tank/create" exact login={login}><TankCreate page={page}/></Protected>
-//               <Route path="/tank/:id" exact><TankView page={page} login={login}/></Route>
-              
-//               <Protected login={login} path="/mydetails" exact><PersonalDetails page={page}/></Protected>
-              
-//               <Route path="*"><NotFound page={page}/></Route>
-//             </Switch> 
-//           </Suspense>
-//         </Router>
-//       </AuthProvider>
-//     )
-//   }
-
-
-  
-// }
-
-// export default App;

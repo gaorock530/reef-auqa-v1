@@ -18,20 +18,6 @@ import TankGear from './tank_gear'
 export default function TankView ({data, id}) {
   const [showdelete, setShowDelete] = useState(false)
   const auth = useContext(TankContext)
-  // dispatch({type: SET_AUTH, payload: true})
-
-  // useEffect(() => {
-  //   console.log('set auth')
-  //   const run = async () => {
-  //     try{
-  //       const id = localStorage.getItem('id')
-  //     }catch{
-
-  //     }
-  //   }
-  //   run()
-  // }, [dispatch])
-
 
   return (
     <div className="constrained">

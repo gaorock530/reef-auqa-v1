@@ -187,13 +187,6 @@ form, .outside-form {
   cursor: default;
 }
 
-// .form-result {
-//   position: relative;
-//   margin: 0 auto;
-//   // max-width: 35rem;
-//   // padding: 10px;
-// }
-
 .input-select {
   cursor: pointer;
   
@@ -225,5 +218,79 @@ form, .outside-form {
   }
   .down {
     transform: translateY(calc(-50% + 5px));
+  }
+}
+
+/* Button modify */
+.post-preview {
+  margin-top: 20px;
+  margin-bottom: 0;
+  background-color: rgba($Neon-facial-portraits-5-hex, 0.5);
+  border-color: $Neon-facial-portraits-5-hex;
+
+  &:hover {
+    background-color: $Neon-facial-portraits-5-hex;
+    color: initial;
+    box-shadow: 0 0 5px $Neon-facial-portraits-5-hex;
+  }
+}
+
+/* Switch component */
+.switch {
+  cursor: pointer;
+  overflow: hidden;
+  max-width: 400px;
+  width: 100%;
+  font-size: $h2;
+  color: $bg-color-2;
+
+  .on {
+    transform: translateX(0);
+  }
+  
+  .off {
+    transform: translateX(100%);
+  }
+}
+
+.switch-block {
+  position: absolute;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background-color: $bg-color-2;
+  border-radius: 5px;
+}
+
+.switch-option {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Checkbox Component */
+
+.checkbox {
+  position: relative;
+  display: inline-block;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.check-option {
+  display: inline-block;
+  cursor: pointer;
+  font-size: $h2;
+  padding-right: 15px;
+  color: $font-color-2;
+
+  svg, span {
+    margin: 0 3px;
+  }
+
+  &.checked {
+    color: $bg-color-2;
   }
 }

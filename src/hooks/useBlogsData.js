@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react'
-import {LocalTanks} from '../helper/database'
+import {LocalBlogs} from '../helper/database'
 
 export default () => {
   const [data, setData] = useState(null)
@@ -7,7 +7,7 @@ export default () => {
 
   useEffect(() => {
     const readData = []
-    LocalTanks.iterate(function(value, key) {
+    LocalBlogs.iterate(function(value, key) {
       // Resulting key/value pair -- this callback
       // will be executed for every item in the
       // database.

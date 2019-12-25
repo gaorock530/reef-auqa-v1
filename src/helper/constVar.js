@@ -19,3 +19,32 @@ export const isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|io
 export const MONTHS = ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月']
 export const WEEKDAYS_LONG = ['星期一', '星期二', '星期三', '星期四', '星期五', '星期六', '星期日']
 export const WEEKDAYS_SHORT = ['一', '二', '三', '四', '五', '六', '日']
+
+const toolbarOptions = [
+  ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
+  [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+  [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
+
+  [{ 'header': [1, 2, 3, false] }],
+
+  [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
+  [{ 'align': [] }],
+  ['image'],  
+  ['clean']                                         // remove formatting button
+];
+
+export const editConfigNormal = {
+  modules: {
+    toolbar: toolbarOptions
+  },
+  placeholder: '编辑正文...',
+  theme: 'snow',  // or 'bubble'
+}
+
+export const editConfig = {
+  modules: {
+    toolbar: false
+  },
+  readOnly: true,
+  theme: 'snow'
+}

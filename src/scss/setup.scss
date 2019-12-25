@@ -112,6 +112,10 @@ button {
   transform: translateY(-50%);
 }
 
+.pointer {
+  cursor: pointer;
+}
+
 .green {
   background-color: green;
 }
@@ -120,5 +124,15 @@ button {
 }
 .red {
   background-color: red;
+}
+
+.green-c {
+  color: green;
+}
+.yellow-c {
+  color: yellow;
+}
+.red-c {
+  color: red;
 }
 

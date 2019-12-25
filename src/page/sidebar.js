@@ -17,7 +17,7 @@ const items = [
       { id: 'a1', icon: faImages, label: '鱼缸', to: 'tanks' },
       { id: 'a2', icon: faDragon, label: '生物', to: 'add/livestock/' },
       { id: 'a3', icon: faTools, label: '设备', to: 'add/equipment/' },
-      { id: 'a4', icon: faBook, label: '分享', to: 'post' },
+      { id: 'a4', icon: faBook, label: '分享', to: 'blogs' },
       { id: 'a5', icon: faVial, label: '水质', to: 'add/test/' },
     ]
   },
