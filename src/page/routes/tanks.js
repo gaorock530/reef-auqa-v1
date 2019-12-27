@@ -8,38 +8,41 @@ import { faPlus, faEye, faHeart, faFrown } from '@fortawesome/free-solid-svg-ico
 import useTanksFromLocal from '../../hooks/useTanksFromLocal'
 
 
-function Tanks ({data}) {
-  return data.map((l, index) => <Tank item={l} key={index}/>)
-}
 
-function Tag ({item}) {
-  return <i>{item}</i>
-}
-
-function Tags ({tags}) {
-  return tags.map((tag, index) => <Tag item={tag} key={index}/>)
-}
-
-const Tank = ({item}) => (
-  <Link className="constrained tank-overview" to={`/tank/${item.id}`} style={{backgroundImage: `url(${item.cover})`}}>
-    <div className="tank-overview-info">
-      <div className="to-banner">
-        {item.name}
-      </div>
-      <div className="tank-honours">
-          <Tags tags={item.tags}/>
-      </div>
-      <div className="to-banner right">
-        <label alt="view"><FontAwesomeIcon icon={faEye}/> {item.view || '0'}</label>
-        <label><FontAwesomeIcon icon={faHeart}/> {item.like || '0'}</label>
-      </div>
-    </div>
-  </Link>
-)
 
 export default () => {
+  
   const data = useTanksFromLocal()
   const title = "我的鱼缸"
+
+  function Tanks ({data}) {
+    return data.map((l, index) => <Tank item={l} key={index}/>)
+  }
+  
+  function Tag ({item}) {
+    return <i>{item}</i>
+  }
+  
+  function Tags ({tags}) {
+    return tags.map((tag, index) => <Tag item={tag} key={index}/>)
+  }
+  
+  const Tank = ({item}) => (
+    <Link className="constrained tank-overview" to={`/tank/${item.id}`} style={{backgroundImage: `url(${item.cover})`}}>
+      <div className="tank-overview-info">
+        <div className="to-banner">
+          {item.name}
+        </div>
+        <div className="tank-honours">
+            <Tags tags={item.tags}/>
+        </div>
+        <div className="to-banner right">
+          <label alt="view"><FontAwesomeIcon icon={faEye}/> {item.view || '0'}</label>
+          <label><FontAwesomeIcon icon={faHeart}/> {item.like || '0'}</label>
+        </div>
+      </div>
+    </Link>
+  )
 
   return (
     <Body>

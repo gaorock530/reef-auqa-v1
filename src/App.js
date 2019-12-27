@@ -22,7 +22,7 @@ const TankCreate = lazy(() => import('./page/routes/tank_create'))
 const TankView = lazy(() => import('./page/routes/tank_view/index'))
 const Blogs = lazy(() => import('./page/routes/blogs'))
 const BlogCreate = lazy(() => import('./page/routes/blog_create'))
-const BlogView = lazy(() => import('./page/routes/blog_view'))
+const BlogView = lazy(() => import('./page/routes/blog_view/index'))
 
 
 

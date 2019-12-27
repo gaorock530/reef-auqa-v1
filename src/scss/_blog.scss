@@ -86,9 +86,9 @@
 }
 
 .blog-list-slugs {
-  text-align: right;
+  // text-align: right;
   color: $font-color-2;
-  font-size: $h6;
+  font-size: $h8;
   padding: 3px 0;
 }
 
@@ -160,9 +160,7 @@
     font-size: $h6;
     height: 35px;
   }
-  .blog-list-slugs {
-    font-size: $h7;
-  }
+
   .blog-list-stats {
     font-size: $h7;
   }

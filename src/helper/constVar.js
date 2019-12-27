@@ -25,7 +25,7 @@ const toolbarOptions = [
   [{ 'list': 'ordered'}, { 'list': 'bullet' }],
   [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
 
-  [{ 'header': [1, 2, 3, false] }],
+  // [{ 'header': [1, 2, 3, false] }],
 
   [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
   [{ 'align': [] }],
@@ -41,7 +41,7 @@ export const editConfigNormal = {
   theme: 'snow',  // or 'bubble'
 }
 
-export const editConfig = {
+export const editConfigReadOnly = {
   modules: {
     toolbar: false
   },

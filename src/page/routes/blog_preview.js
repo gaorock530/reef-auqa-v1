@@ -1,6 +1,6 @@
 import React, {useRef, useEffect} from 'react'
 import Quill from 'quill'
-import {editConfig} from '../../helper/constVar'
+import {editConfigReadOnly} from '../../helper/constVar'
 
 
 export default ({preview, quitPreview}) => {
@@ -8,7 +8,7 @@ export default ({preview, quitPreview}) => {
   const previewContainer = useRef()
 
   useEffect(() => {
-    previewQuill.current = new Quill(previewContainer.current, editConfig)
+    previewQuill.current = new Quill(previewContainer.current, editConfigReadOnly)
     previewQuill.current.setContents(preview)
     return () => {
       previewQuill.current = undefined
@@ -18,7 +18,7 @@ export default ({preview, quitPreview}) => {
 
   return (
     <div className="preview-wrapper" onClick={quitPreview}>
-      <div className="constrained preview"><div ref={previewContainer} ></div></div>
+      <div className="constrained preview"><div ref={previewContainer} className="post-content "></div></div>
     </div>
   )
 }

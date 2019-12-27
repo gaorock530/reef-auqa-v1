@@ -81,6 +81,7 @@ export default function TankView ({data}) {
   })
     return () => {
       chart.current.destroy()
+      chart.current = undefined
     }
   }, [])
 

@@ -6,7 +6,7 @@ export default () => {
 
 
   useEffect(() => {
-    const readData = []
+    let readData = []
     LocalTanks.iterate(function(value, key) {
       // Resulting key/value pair -- this callback
       // will be executed for every item in the
@@ -21,6 +21,10 @@ export default () => {
         // This code runs if there were any errors
         console.log(err)
     })
+
+    return () => {
+      readData = undefined
+    }
   
   }, [])
 

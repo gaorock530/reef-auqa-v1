@@ -1,6 +1,8 @@
 import React, {useRef, useEffect} from 'react'
-import Jimp from 'jimp'
-const workerInstance = new Worker('/photoWorker.js')
+// import Jimp from 'jimp'
+import processImage from '../helper/processImage'
+// const workerInstance = new Worker('/photoWorker.js')
+
 
 /**
  * @param {Component} props.children
@@ -11,44 +13,31 @@ const workerInstance = new Worker('/photoWorker.js')
  */
 
 export default ({children, id = 'upload', onSelect, className, pic}) => {
-
+  
   const cover = useRef()
   const accept = ['image/gif', 'image/jpeg', 'image/png']
-  let display
+  const display = useRef()
+
   useEffect(() => {
     return () => {
-      window.URL.revokeObjectURL(display)
+      window.URL.revokeObjectURL(display.current)
+      display.current = undefined
     }
   })
-  const onChoose = (e) => {
-    if (display) window.URL.revokeObjectURL(display)
+  
+  const onChoose = async (e) => {
+    if (display.current) window.URL.revokeObjectURL(display.current)
     
     const input = e.target.files[0]
     
     if (!input || !~accept.indexOf(input.type)) return
-    if (window.Worker) {
-      workerInstance.postMessage(input)
-      workerInstance.onmessage = e => {
-        if (onSelect) onSelect(e.data)
-      }
-    } else {
-      const reader = new FileReader()
-      reader.addEventListener("loadend",async () => {
-          // reader.result contains the contents of blob as a typed array
-          const pic = await Jimp.read(reader.result)
-          pic.resize(1200, Jimp.AUTO, Jimp.HORIZONTAL_ALIGN_LEFT | Jimp.VERTICAL_ALIGN_TOP)
-          pic.quality(50)
-          const newPic = await pic.getBufferAsync(Jimp.MIME_JPEG)
-          const newFile = new Blob([newPic], {type: "image/jpeg"})
-          if (onSelect) onSelect(newFile)
-          // console.log(window.URL.createObjectURL(newFile))
-      }, {once: true});
-      reader.readAsArrayBuffer(input)
-    }
-    // const pic = await Jimp.read(input)
-    display = window.URL.createObjectURL(input)
-    // console.log(display)
-    cover.current.style.backgroundImage = `url(${display})`
+  
+    display.current = window.URL.createObjectURL(input)
+    // console.log(display.current)
+    cover.current.style.backgroundImage = `url(${display.current})`
+    
+    const output = await processImage(input)
+    if (onSelect) onSelect(output)
     
   }
   

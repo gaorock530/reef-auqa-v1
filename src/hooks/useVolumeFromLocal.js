@@ -6,8 +6,7 @@ export default (defaultValue) => {
   const [volumeData, setVolumeData] = useState([])
 
   useEffect(() => {
-    const readData = []
-    const display = []
+    let readData = [], display = []
     LocalTanks.iterate(function(value) {
       readData.unshift(value.volume)
       display.unshift(value.name + ": " + value.volume + 'L')
@@ -19,6 +18,11 @@ export default (defaultValue) => {
         // This code runs if there were any errors
         console.log(err)
     })
+
+    return () => {
+      readData = undefined
+      display = undefined
+    }
   }, [defaultValue])
 
   return [volumeData, measureOption]
