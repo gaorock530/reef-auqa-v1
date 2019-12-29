@@ -36,7 +36,7 @@ export default ({onSendForm, phone}) => {
   const onSubmit = (e) => {
     e.preventDefault()
     if (!allow) return
-    console.log(code)
+    // console.log(code)
     setChecking(true)
     setTimeout(() => {
       if (codeInput !== code) {

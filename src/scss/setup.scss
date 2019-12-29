@@ -29,6 +29,11 @@ video::-webkit-media-controls-overlay-play-button {
     opacity: 0;
 }
 
+*[contenteditable] {
+  // -webkit-user-select: auto !important;
+  user-select: auto !important;
+}
+
 
 a, 
 a:-webkit-any-link, 

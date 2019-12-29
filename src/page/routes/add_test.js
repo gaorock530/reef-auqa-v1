@@ -88,7 +88,7 @@ function AddNewTest ({onRecord}) {
         plus={idx + 1 === tests.length}
         options={testLabel.filter(v => onNameLIst.indexOf(v) === -1 || v === test.name)}
       />)}
-      <button>记录</button>
+      <button>记录测试</button>
     </form>
   )
 }

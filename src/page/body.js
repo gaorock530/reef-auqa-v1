@@ -1,19 +1,16 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 
-export default class Body extends React.PureComponent {
+export default ({className, children}) => {
 
-  componentDidMount () {
+  useEffect(() => {
     window.scrollTo(0, 0)
-  }
-
-  render () {
-    return (
-      <div className={'main-wrapper ' + (this.props.className || '')}>
-        <div className="main-wrapper-container">
-          {this.props.children}
-        </div>  
-      </div>
-    )
-  }
+  }, [])
   
+  return (
+    <div className={'main-wrapper ' + (className || '')}>
+      <div className="main-wrapper-container">
+        {children}
+      </div>  
+    </div>
+  )
 }

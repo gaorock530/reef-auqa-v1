@@ -55,7 +55,6 @@ export default ({onSendForm}) => {
     if (!allow) return
     let error = false
     setChecking(true)
-    console.log(state)
     setTimeout(() => {
       if (errorList.name.includes(state.name.v)) {
         console.log('name exist')

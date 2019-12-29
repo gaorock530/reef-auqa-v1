@@ -159,36 +159,3 @@ export default () => {
 
 
 
-
-// export default class SideBar extends React.Component {
-  
-
-//   shouldComponentUpdate (nextProps) {
-//     if (this.show !== nextProps.show) {
-//       this.show = nextProps.show
-//       return true
-//     }
-//     return false
-//   }
-  
-//   render () {
-//     const status = this.props.show? 'show':'hide'
-//     return (
-//       <aside className={`sidebar-wrapper person ${status}`}>
-//         <div className="side-header" onClick={this.props.onHideBar}>
-//           <div className="side-person-header">
-//             <span>{this.props.user || '为哦啊是看到了靠阿斯'}</span>
-//             <picture></picture>
-//           </div>
-//         </div>
-//         <div className="side-main">
-//         <CustomScroll flex="1" allowOuterScroll={false}>
-//           {this.props.show && <Scroll onToggle={this.props.onHideBar} onLogout={this.props.onLogout} />}
-//         </CustomScroll>
-//         </div>
-        
-//       </aside>
-//     )
-//   }
-  
-// }

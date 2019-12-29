@@ -145,33 +145,3 @@ export default () => {
     </aside>
   )
 }
-// export default class SideBar extends React.Component {
-  
-
-//   shouldComponentUpdate (nextProps) {
-//     if (this.show !== nextProps.show) {
-//       this.show = nextProps.show
-//       return true
-//     }
-//     return false
-//   }
-  
-//   render () {
-//     const status = this.props.show? 'show':'hide'
-//     return (
-//       <aside className={`sidebar-wrapper ${status}`}>
-//         <div className="side-header">
-//           <div className="header-menu button" onClick={this.props.onHideBar}><FontAwesomeIcon icon={faBars} size="2x"/></div>
-//           <div className="header-title">MagicAqua</div>
-//         </div>
-//         <div className="side-main">
-//           <CustomScroll flex="1" allowOuterScroll={false}>
-//             {this.props.show && <Scroll onToggle={this.props.onHideBar}/>}
-//           </CustomScroll>
-//         </div>
-        
-//       </aside>
-//     )
-//   }
-  
-// }

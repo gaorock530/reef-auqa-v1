@@ -1,5 +1,4 @@
-import React, {useRef, useEffect, useContext} from 'react'
-import {AuthContext} from '../context/LoginContext'
+import React, {useRef, useEffect} from 'react'
 import {Helmet} from "react-helmet";
 import {isApple} from '../helper/constVar'
 import Body from './body'
@@ -7,7 +6,6 @@ import Body from './body'
 export default () => {
   const video = useRef()
   const cover = useRef()
-  const [{page}] = useContext(AuthContext)
   
   const playvideo = () => {
     video.current.play()
@@ -25,7 +23,7 @@ export default () => {
   return (
     <Body>
       <Helmet>
-        <title>{page}</title>
+        <title>首页</title>
         <meta name="description" content="ReefAqua" />
       </Helmet>
       <div className="video-header">

@@ -9,7 +9,7 @@ import Stage2 from '../components/login/stage2'
 import Stage3 from '../components/login/stage3'
 
 export default () => {
-  const [{login, page}] = useContext(AuthContext)
+  const [{login}] = useContext(AuthContext)
   let location = useLocation()
   let { from } = location.state || { from: { pathname: "/" } }
 
@@ -33,7 +33,7 @@ export default () => {
     login?<Redirect to={from}/>:
     <Body>
       <Helmet>
-        <title>{`${page}|注册`}</title>
+        <title>注册</title>
       </Helmet>
       <div className="constrained--small">
         {stage === 0 && <Stage1 onSendForm={stage1Complete} />}

@@ -82,11 +82,17 @@
     height: 100vh;
     left: 0;
     top: 0;
-    svg {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    canvas {
+      display: none;
+    }
+    img {
+      width: 256px;
+      box-shadow: 0 0 10px #000;
     }
   }
 }
@@ -139,23 +145,62 @@
       border-radius: 50%;
       margin-right: 10px;
     }
-    input {
+    input, .reply-input {
       position: relative;
       background: transparent;
       flex: 1;
+      z-index: 1;
       border: none;
       border-bottom: 1px solid #ddd;
       outline: none;
-      height: 25px;
+      height: auto;
       vertical-align: middle;
       padding: 3px 5px;
       font-size: $h4;
       resize: vertical;
+      word-break: normal;
+      word-wrap: break-word;
+      white-space: pre-wrap;
+      background-color: #eee;
+      // overflow: hidden;
+
+      &.hold::before {
+        content: '';
+      }
+
+      &::before {
+        content: '发表回复...';
+        z-index: 0;
+        color: #aaa;
+        overflow: hidden;
+      }
+
+      &:focus::before {
+        display: none;
+      }
+
+      &:focus::after {
+        position: absolute;
+        z-index: 2;
+        content: '';
+        width: 100%;
+        height: 2px;
+        bottom: -2px;
+        left: 0;
+        background-color: #000;
+        animation: wide 120ms ease-in;
+      }
 
       &:focus {
-        border-bottom-color: #000;
+        // &::after {
+        //   color: transparent;
+        // }
+        border-bottom-color: transparent;
       }
     }
+
+   
+
     button {
       margin-left: 10px;
       padding: 5px 15px;
@@ -187,7 +232,7 @@
   .post-comment {
     display: flex;
     flex-direction: row;
-    padding: 20px 0;
+    padding: 5px 0;
 
     &>label {
       position: relative;
@@ -214,7 +259,9 @@
       }
       p {
         font-size: $h4;
-        word-break: break-all;
+        word-break: normal;
+        word-wrap: break-word;
+        white-space: pre-wrap;
       }
       .post-comment-utils {
         display: block;
@@ -223,10 +270,6 @@
         svg, label {
           cursor: pointer;
           margin-right: 5px;
-
-          // &:hover {
-          //   color: #333;
-          // }
         }
         span {
           margin-right: 10px;
@@ -234,11 +277,26 @@
       }
 
       .post-reply-list {
-
+        .subreply-cover {
+          width: 30px;
+          height: 30px;
+        }
       }
     }
   }
 }
+
+@keyframes wide{
+  0% {
+    width: 0%;
+    left: 50%;
+  }
+  100% {
+    width: 100%;
+    left: 0;
+  }
+}
+
 
 @media screen and (max-width: 470px) {
   .post-header {
