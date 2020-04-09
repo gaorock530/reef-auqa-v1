@@ -1,0 +1,40 @@
+.mytask {
+  h3 {
+    span {
+      font-size: $h5;
+      padding: 0 10px;
+    }
+  }
+
+  .task-list {
+    padding: 5px 0 20px 0;
+    font-size: $h4;
+
+    li {
+      padding: 5px 0;
+      svg {
+        font-size: $h4;
+      }
+      p {
+        display: inline;
+        cursor: default;
+      }
+      label {
+        padding: 0 5px;
+        font-size: $h5;
+        color: $font-color-2;
+      }
+      a {
+        color: inherit;
+        &:hover {text-decoration: underline;}
+      }
+      span {
+        font-size: $h5;
+      }
+    }
+  }
+
+  .finished {
+    color: $font-color-2;
+  }
+}

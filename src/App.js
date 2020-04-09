@@ -6,7 +6,7 @@ import Spinner from './components/animate/spinner'
 import Screen from './page/screen'
 import Header from './page/header'
 import Sidebar from './page/sidebar'
-
+import Body from './page/body'
 import Protected from './page/protected'
 
 
@@ -24,6 +24,15 @@ const Blogs = lazy(() => import('./page/routes/blogs'))
 const BlogCreate = lazy(() => import('./page/routes/blog_create'))
 const BlogView = lazy(() => import('./page/routes/blog_view/index'))
 
+// info
+
+const Info = lazy(() => import('./page/routes/info_life/index'))
+
+// My
+
+const Favorite = lazy(() => import('./page/routes/favorite'))
+const ThumbUp = lazy(() => import('./page/routes/thumbups'))
+
 
 
 // tools
@@ -37,9 +46,22 @@ const AddTest = lazy(() => import('./page/routes/add_test'))
 const AddLivestock = lazy(() => import('./page/routes/add_livestock'))
 const AddEquipment = lazy(() => import('./page/routes/add_equipment'))
 
+// report 
+const TapWater = lazy(() => import('./page/routes/report_water'))
+
+
 
 // personal
-const PersonalDetails = lazy(() => import('./page/routes/personal'))
+const PersonTitle = lazy(() => import('./page/routes/mytitle'))
+const PersonTask = lazy(() => import('./page/routes/mytask'))
+const Friends = lazy(() => import('./page/routes/communication/index'))
+const PersonMsg = lazy(() => import('./page/routes/mymsg'))
+const PersonAt = lazy(() => import('./page/routes/myat'))
+const PersonalDetails = lazy(() => import('./page/routes/myinfo'))
+const ResetPass = lazy(() => import('./page/routes/resetpassword'))
+const Certification = lazy(() => import('./page/routes/certification'))
+const Privacy = lazy(() => import('./page/routes/privacy'))
+const ClearCache = lazy(() => import('./page/routes/clearcache'))
 
 
 export default () => {
@@ -54,35 +76,59 @@ export default () => {
         <Sidebar/>
         <Screen/>
         <PersonSideBar/>
+        
         <Suspense fallback={<Spinner/>}>
-            <Switch>
-            <Route path="/" exact><Home/></Route>
-            <Route path="/login" exact><Login/></Route>
+          <Switch>
+            <Route path="/" exact><Body><Home/></Body></Route>
+            <Route path="/login" exact><Body><Login/></Body></Route>
 
-            <Route path="/dose" exact><Drug/></Route>
-            <Route path="/glass" exact><Glass/></Route>
-            <Route path="/flow" exact><Flow/></Route>
-            <Route path="/salt" exact><Salt/></Route>
+            <Route path="/dose" exact><Body><Drug/></Body></Route>
+            <Route path="/glass" exact><Body><Glass/></Body></Route>
+            <Route path="/flow" exact><Body><Flow/></Body></Route>
+            <Route path="/salt" exact><Body><Salt/></Body></Route>
 
-            <Protected path="/tanks" exact><Tanks/></Protected>
-            <Protected path="/tank/create" exact><TankCreate/></Protected>
-            <Route path="/tank/:id" exact><TankView/></Route>
+            <Protected path="/tanks" exact><Body><Tanks/></Body></Protected>
+            <Protected path="/tank/create" exact><Body><TankCreate/></Body></Protected>
+            <Route path="/tank/:id" exact><Body><TankView/></Body></Route>
 
-            <Protected path="/blogs" exact><Blogs/></Protected>
-            <Protected path="/blog/create" exact><BlogCreate/></Protected>
-            <Route path="/blog/:id" exact><BlogView/></Route>
+            <Protected path="/blogs" exact><Body><Blogs/></Body></Protected>
+            <Protected path="/blog/create" exact><Body><BlogCreate/></Body></Protected>
+            <Route path="/blog/:id" exact><Body><BlogView/></Body></Route>
 
-            <Protected path="/add/test/:id"><AddTest/></Protected>
-            <Protected path="/add/test/"><AddTest/></Protected>
-            <Protected path="/add/livestock/:id"><AddLivestock/></Protected>
-            <Protected path="/add/livestock/"><AddLivestock/></Protected>
-            <Protected path="/add/equipment/:id"><AddEquipment/></Protected>
-            <Protected path="/add/equipment/"><AddEquipment/></Protected>
+            <Protected path="/add/test/:id"><Body><AddTest/></Body></Protected>
+            <Protected path="/add/test/"><Body><AddTest/></Body></Protected>
+            <Protected path="/add/livestock/:id"><Body><AddLivestock/></Body></Protected>
+            <Protected path="/add/livestock/"><Body><AddLivestock/></Body></Protected>
+            <Protected path="/add/equipment/:id"><Body><AddEquipment/></Body></Protected>
+            <Protected path="/add/equipment/"><Body><AddEquipment/></Body></Protected>
+
+            <Protected path="/favorites/"><Body><Favorite /></Body></Protected>
+            <Protected path="/thumbups/"><Body><ThumbUp /></Body></Protected>
+
+            <Route path="/info/:cate" exact><Body><Info/></Body></Route>
+            <Route path="/info/:cate/:world" exact><Body><Info/></Body></Route>
+            <Route path="/info/:cate/:world/:classId" exact><Body><Info/></Body></Route>
+            <Route path="/info/:cate/:world/:classId/:id" exact><Body><Info/></Body></Route>
+
+            <Route path="/tapwater" exact><Body><TapWater/></Body></Route>
+
             
-            <Protected path="/mydetails" exact><PersonalDetails/></Protected>
-
+            <Protected path="/mytitle" exact><Body><PersonTitle/></Body></Protected>
+            <Route path="/title/:id" exact><Body><PersonTitle/></Body></Route>
+            <Protected path="/mytask" exact><Body><PersonTask/></Body></Protected>
             
-            <Route path="*"><NotFound/></Route>
+            <Protected path="/friends" exact><Friends/></Protected>
+            <Protected path="/messages" exact><PersonMsg/></Protected>
+            <Protected path="/atlist" exact><PersonAt/></Protected>
+
+            <Protected path="/resetpassword" exact><Body><ResetPass/></Body></Protected>
+            <Protected path="/certification" exact><Body><Certification/></Body></Protected>
+            <Protected path="/privacy" exact><Body><Privacy/></Body></Protected>
+            <Protected path="/clearcache" exact><Body><ClearCache/></Body></Protected>
+
+            <Protected path="/mydetails" exact><Body><PersonalDetails/></Body></Protected>
+
+            <Route path="*"><Body><NotFound/></Body></Route>
           </Switch> 
         </Suspense>
       </Router>

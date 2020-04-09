@@ -1,8 +1,7 @@
 import React, {useState, useContext, useRef} from 'react'
-import {AuthContext,} from '../context/LoginContext'
+import {AuthContext} from '../context/LoginContext'
 import {useLocation, Redirect} from "react-router-dom";
 import {Helmet} from "react-helmet";
-import Body from './body'
 
 import Stage1 from '../components/login/stage1'
 import Stage2 from '../components/login/stage2'
@@ -31,7 +30,7 @@ export default () => {
 
   return (
     login?<Redirect to={from}/>:
-    <Body>
+    <>
       <Helmet>
         <title>注册</title>
       </Helmet>
@@ -41,6 +40,6 @@ export default () => {
         {stage === 2 && <Stage3 data={state}/>}
       </div>
       
-    </Body>
+    </>
   )
 }

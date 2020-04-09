@@ -1,7 +1,6 @@
 import React, {useState} from 'react'
 import {Helmet} from "react-helmet";
 import {metrics as metri, convert as conv} from '../../helper/constVar'
-import Body from '../body'
 import Input from '../../components/form/input'
 import Option from '../../components/form/optionInput'
 import Static from '../../components/form/static'
@@ -144,7 +143,7 @@ export default () => {
 
 
   return (
-    <Body>
+    <>
       <Helmet>
         <title>玻璃厚度计算</title>
         <meta name="description" content="ReefAqua 玻璃厚度计算" />
@@ -172,6 +171,6 @@ export default () => {
           <Static value={`底面位移：${result.DeflectionB}mm`}/>
         </>}
       </div>
-    </Body>
+    </>
   )
 }

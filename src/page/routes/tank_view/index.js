@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react'
 import {TankProvider} from '../../../context/TankContext'
 import {useParams} from 'react-router-dom'
 import {Helmet} from "react-helmet"
-import Body from '../../body'
 import Spinner from '../../../components/animate/spinner'
 import {LocalTanks} from '../../../helper/database'
 import View from './tank_view'
@@ -28,8 +27,8 @@ export default () => {
   }, [id])
   
   
-  return notFound?<Body><span>Not Found</span></Body>:(
-    <Body>
+  return notFound?<span>Not Found</span>:(
+    <>
       <Helmet>
         <title>鱼缸详情</title>
         <meta name="description" content="ReefAqua 鱼缸详情" />
@@ -37,7 +36,7 @@ export default () => {
       <TankProvider>
         {!data?<Spinner/>:<View data={data} id={id}/>}
       </TankProvider>
-    </Body>
+    </>
   )
 }
 

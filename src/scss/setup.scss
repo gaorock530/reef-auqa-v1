@@ -46,6 +46,10 @@ a:focus {
   text-decoration: none;
 }
 
+li {
+  list-style: none;
+}
+
 button {
   appearance: none;
   outline: none;
@@ -139,5 +143,8 @@ button {
 }
 .red-c {
   color: red;
+}
+.gray-c {
+  color: #aaa
 }
 

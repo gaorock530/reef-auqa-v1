@@ -2,7 +2,7 @@ import React, {useState, useRef} from 'react'
 import {Helmet} from "react-helmet"
 import {measureDefaultOption} from '../../helper/constVar'
 import useVolumeFromLocal from '../../hooks/useVolumeFromLocal'
-import Body from '../body'
+
 import Static from '../../components/form/static'
 import Select from '../../components/form/select'
 
@@ -13,6 +13,7 @@ import Volume from './measure_drug/volume'
 
 
 export default () => {
+  const title = "海盐计算"
   const [option, setOption] = useState(1)
   const volume = useRef(0)
   const [result, setResult] = useState(null)
@@ -48,10 +49,10 @@ export default () => {
 
 
   return (
-    <Body>
+    <>
       <Helmet>
-        <title>海盐计算</title>
-        <meta name="description" content="ReefAqua 海盐计算" />
+        <title>{title}</title>
+        <meta name="description" content={`ReefAqua ${title}`}/>
       </Helmet>
       <div className="constrained--small">
         <form onSubmit={onSubmit} noValidate>
@@ -67,6 +68,6 @@ export default () => {
           <Static value={`海盐添加: ${result}`}/>
         </>}
       </div>
-    </Body>
+    </>
   )
 }

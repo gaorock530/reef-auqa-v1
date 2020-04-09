@@ -1,7 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import {Helmet} from "react-helmet"
-import Body from '../body'
 import Spinner from '../../components/animate/spinner'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faEye, faHeart, faFrown } from '@fortawesome/free-solid-svg-icons'
@@ -45,7 +44,7 @@ export default () => {
   )
 
   return (
-    <Body>
+    <>
       <Helmet>
         <title>{title}</title>
         <meta name="description" content={`ReefAqua ${title}`} />
@@ -55,6 +54,6 @@ export default () => {
         <i>您还没有</i><FontAwesomeIcon icon={faFrown} size="2x"/><i>创建鱼缸</i>
       </span>):<Spinner/>}
       <Link to="/tank/create" className="tank-add-new"><FontAwesomeIcon icon={faPlus} size="2x"/></Link>
-    </Body>
+    </>
   )
 }

@@ -34,17 +34,26 @@
 /* person Level */
 .side-item-level {
   position: relative;
-  height: 10px;
+  height: 11px;
   border: 1px solid $font-color-2;
   flex: 3;
   border-radius: 10px;
+  overflow: hidden;
 
   .level-value {
     position: absolute;
     left: 0;
     height: 100%;
-    width: 85%;
     background-color: $font-color-2;
+  }
+
+  .level-word {
+    position: absolute;
+    top: -3px;
+    left: 50%;
+    transform: translateX(-50%) scale(0.8);
+    z-index: 2;
+    color: $bg-color-2;
   }
 }
 
@@ -53,8 +62,10 @@
   display: flex;
   align-items: center;
 
-  i {
-    line-height: $h8;
+  i::before {
+    content: 'new';
+    position: relative;
+    top: -2px;
     padding: 1px 3px 2px 3px;
     font-size: $h8;
     color: $font-color-light;

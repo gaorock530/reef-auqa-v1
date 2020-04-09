@@ -1,7 +1,6 @@
 import React, {useState, useReducer} from 'react'
 import {useParams} from 'react-router-dom'
 import {Helmet} from 'react-helmet'
-import Body from '../body'
 import Select from '../../components/form/select'
 import Input from '../../components/form/optionInput'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -24,7 +23,7 @@ export default () => {
   }
 
   return (
-    <Body>
+    <>
       <Helmet>
         <title>添加测试</title>
         <meta name="description" content="ReefAqua 添加测试" />
@@ -33,7 +32,7 @@ export default () => {
         {!id && <Select options={list} onChange={v => setTankId(list[v])}/>}
         <AddNewTest onRecord={onRecord}/>
       </div>
-    </Body>
+    </>
   )
 }
 

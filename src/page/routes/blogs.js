@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Body from '../body'
+
 import {Helmet} from "react-helmet"
 import Spinner from '../../components/animate/spinner'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -41,7 +41,7 @@ export default () => {
   
 
   return (
-    <Body>
+    <>
       <Helmet>
         <title>{title}</title>
         <meta name="description" content={`ReefAqua ${title}`} />
@@ -51,7 +51,7 @@ export default () => {
       <span className="tank-tips">
         <i>您还没有</i><FontAwesomeIcon icon={faFrown} size="2x"/><i>创建分享</i>
       </span>):<Spinner/>}
-    </Body>
+    </>
   )
 }
 

@@ -2,8 +2,7 @@ import React, {useState, useRef} from 'react'
 import {Helmet} from "react-helmet";
 import {measureDefaultOption} from '../../helper/constVar'
 import useVolumeFromLocal from '../../hooks/useVolumeFromLocal'
-// import {AuthContext} from '../../context/LoginContext'
-import Body from '../body'
+
 import Static from '../../components/form/static'
 import Select from '../../components/form/select'
 
@@ -39,7 +38,7 @@ export default () => {
 
 
   return (
-    <Body>
+    <>
       <Helmet>
         <title>水流计算</title>
         <meta name="description" content="ReefAqua 水流计算" />
@@ -61,6 +60,6 @@ export default () => {
         </>}
       </div>
       
-    </Body>
+    </>
   )
 }

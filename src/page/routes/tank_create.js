@@ -2,7 +2,6 @@ import React, {useState} from 'react'
 import {Redirect} from 'react-router-dom'
 import DayPicker from 'react-day-picker'
 import {Helmet} from 'react-helmet'
-import Body from '../body'
 import Input from '../../components/form/input'
 import Option from '../../components/form/optionInput'
 import Select from '../../components/form/select'
@@ -150,7 +149,7 @@ export default () => {
 
 
   return done?<Redirect to="/tanks"/>:(
-    <Body>
+    <>
       <Helmet>
         <title>创建鱼缸</title>
         <meta name="description" content="ReefAqua 创建鱼缸" />
@@ -196,6 +195,6 @@ export default () => {
         </form>
       </div>
       
-    </Body>
+    </>
   )
 }

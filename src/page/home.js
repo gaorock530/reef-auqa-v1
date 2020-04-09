@@ -1,7 +1,6 @@
 import React, {useRef, useEffect} from 'react'
 import {Helmet} from "react-helmet";
 import {isApple} from '../helper/constVar'
-import Body from './body'
 
 export default () => {
   const video = useRef()
@@ -21,7 +20,7 @@ export default () => {
   }, [])
 
   return (
-    <Body>
+    <>
       <Helmet>
         <title>首页</title>
         <meta name="description" content="ReefAqua" />
@@ -35,6 +34,6 @@ export default () => {
         <div className="video-header-content"></div>
       </div>
       <div>asdasdsa</div>
-    </Body>
+    </>
   )
 }

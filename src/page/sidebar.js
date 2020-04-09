@@ -6,9 +6,9 @@ import {AuthContext, TOGGLE_SIDE_BAR} from '../context/LoginContext'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { 
   faBars, faFish, faEyeDropper, faImages, faVial, faTint, faCapsules, faHandsHelping, faDragon, faSignature,
-  faRulerVertical, faHeart, faStar, faComments, faTools, faBook, faWater, faDownload, faSeedling, faBug
+  faRulerVertical, faHeart, faStar, faTools, faBook, faWater, faDownload, faSeedling, faBug
 } from '@fortawesome/free-solid-svg-icons'
-
+// faComments
 
 const items = [
   {
@@ -22,20 +22,20 @@ const items = [
     ]
   },
   {
-    title: '交流',
+    title: '我的',
     list: [
-      { id: 'a6', icon: faHeart, label: '赞', to: 'thumbsup' },
-      { id: 'a7', icon: faStar, label: '收藏', to: 'fevorite' },
-      { id: 'a8', icon: faComments, label: '留言', to: 'comment' },
+      { id: 'a6', icon: faHeart, label: '赞', to: 'thumbups' },
+      { id: 'a7', icon: faStar, label: '收藏', to: 'favorites' },
+      // { id: 'a8', icon: faComments, label: '留言', to: 'comments' },
     ]
   },
   {
     title: '资料',
     list: [
-      { id: 'a6', icon: faFish, label: '鱼类', to: 'fishes' },
-      { id: 'a8', icon: faSignature, label: '珊瑚', to: 'corals' },
-      { id: 'a9', icon: faSeedling, label: '除藻类', to: 'cleanupcrew' },
-      { id: 'a10', icon: faBug, label: '其他生物', to: 'otherpests' },
+      { id: 'a6', icon: faFish, label: '鱼类', to: 'info/fishes/salt' },
+      { id: 'a8', icon: faSignature, label: '珊瑚', to: 'info/corals/salt' },
+      { id: 'a9', icon: faSeedling, label: '除藻类', to: 'info/cleanupcrew/salt' },
+      { id: 'a10', icon: faBug, label: '其他生物', to: 'info/otherpests/salt' },
     ]
   },
   {

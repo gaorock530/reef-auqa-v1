@@ -9,3 +9,8 @@ export const LocalBlogs = localForage.createInstance({
   name: 'reefAqua',
   storeName: 'blogs',
 })
+
+export const LocalCity = localForage.createInstance({
+  name: 'reefAqua',
+  storeName: 'map',
+})

@@ -1,5 +1,6 @@
 @import './const.scss';
 @import './setup.scss';
+@import './component';
 
 @import './header.scss';
 @import './animate';
@@ -19,6 +20,12 @@
 @import './blog_view';
 
 @import './add_pages';
+@import './info';
 
 @import './home';
 @import './quill';
+
+@import './friends';
+@import './my_title';
+@import './my_task';
+@import './at_me';

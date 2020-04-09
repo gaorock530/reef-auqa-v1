@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useState } from 'react'
 
 /**
  * @param {Function} props.onChange
@@ -8,12 +8,12 @@ import React, { useState, useRef } from 'react'
  * 
  */
 
-export default ({onChange, on, off, defaultOp}) => {
+export default ({onChange, on, off, defaultOp, disabled, className = ''}) => {
   const [value, setValue] = useState(defaultOp || false)
-  const block = useRef()
 
 
   const onClick = () => {
+    if (disabled) return
     setValue(!value)
     if (onChange) onChange(!value)
   }
@@ -22,9 +22,9 @@ export default ({onChange, on, off, defaultOp}) => {
   const blockClass = "switch-block " + (value?"on":"off")
 
   return (
-    <div className="form-component switch" onClick={onClick}>
+    <div className={"form-component switch" + (disabled?' disabled':'') + className} onClick={onClick} >
       <div className="switch-option">{on || '开'}</div>
-      <div className={blockClass} ref={block}></div>
+      <div className={blockClass}></div>
       <div className="switch-option">{off || '关'}</div>
     </div>
   )

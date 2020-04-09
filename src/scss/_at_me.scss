@@ -1,0 +1,26 @@
+.utils-bar {
+  position: fixed;
+  height: 40px;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  padding: 0 10px;
+  background-color: #aaa;
+
+  nav {
+    position: relative;
+    max-width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+  }
+
+}
+
+.msg-list {
+  padding-top: 30px;
+  li {
+    margin: 5px 0;
+    height: 30px;
+    background-color: #fafafa;
+  }
+}

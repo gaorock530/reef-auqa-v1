@@ -130,157 +130,158 @@
     span {padding: 0 5px;}
   }
 
-  /* 3.2 comments reply */
+}
 
-  .post-reply-auth{
-    display: flex;
-    align-items: center;
-    padding: 20px 0 10px 0;
+/* 3.2 comments reply */
 
-    label {
-      display: inline-block;
-      width: 40px;
-      height: 40px;
-      background-color: red;
-      border-radius: 50%;
-      margin-right: 10px;
+.post-reply-auth{
+  display: flex;
+  align-items: center;
+  padding: 20px 0 10px 0;
+
+  label {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-color: red;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  input, .reply-input {
+    position: relative;
+    background: transparent;
+    flex: 1;
+    z-index: 1;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    outline: none;
+    height: auto;
+    vertical-align: middle;
+    padding: 3px 5px;
+    font-size: $h4;
+    resize: vertical;
+    word-break: normal;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    background-color: #eee;
+    // overflow: hidden;
+
+    &.hold::before {
+      content: '';
     }
-    input, .reply-input {
-      position: relative;
-      background: transparent;
-      flex: 1;
-      z-index: 1;
-      border: none;
-      border-bottom: 1px solid #ddd;
-      outline: none;
-      height: auto;
-      vertical-align: middle;
-      padding: 3px 5px;
+
+    &::before {
+      content: '发表回复...';
+      z-index: 0;
+      color: #aaa;
+      overflow: hidden;
+    }
+
+    &:focus::before {
+      display: none;
+    }
+
+    &:focus::after {
+      position: absolute;
+      z-index: 2;
+      content: '';
+      width: 100%;
+      height: 2px;
+      bottom: -2px;
+      left: 0;
+      background-color: #000;
+      animation: wide 120ms ease-in;
+    }
+
+    &:focus {
+      // &::after {
+      //   color: transparent;
+      // }
+      border-bottom-color: transparent;
+    }
+  }
+
+ 
+
+  button {
+    margin-left: 10px;
+    padding: 5px 15px;
+    border-radius: 5px;
+    font-weight: 400;
+    font-size: $h5;
+    border: none;
+    background-color: transparent;
+    color: $bg-color-2;
+    &:hover {
+      color: $font-color-2;
+    }
+    &:disabled {
+      color: rgba($bg-color-2, 0.5);
+    }
+  }
+}
+
+/* 3.2 comments list */
+
+.post-comments-list{
+  font-size: $h5;
+  padding: 10px 0;
+  p {
+    padding: 0.2rem 0 !important;
+  }
+}
+
+.post-comment {
+  display: flex;
+  flex-direction: row;
+  padding: 5px 0;
+
+  &>label {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: red;
+    margin-right: 10px;
+  }
+
+  .post-comment-content {
+    position: relative;
+    flex: 1;
+    
+    h5 {
+      &>span {font-size: $h5;}
+      &>b {padding: 0 5px; color: #aaa}
+      &>i {
+        font-style: normal; 
+        font-size: $h5; 
+        color: #666;
+        font-weight: 400;
+      }
+    }
+    p {
       font-size: $h4;
-      resize: vertical;
       word-break: normal;
       word-wrap: break-word;
       white-space: pre-wrap;
-      background-color: #eee;
-      // overflow: hidden;
-
-      &.hold::before {
-        content: '';
+    }
+    .post-comment-utils {
+      display: block;
+      margin: 10px 0;
+      color: #666;
+      svg, label {
+        cursor: pointer;
+        margin-right: 5px;
       }
-
-      &::before {
-        content: '发表回复...';
-        z-index: 0;
-        color: #aaa;
-        overflow: hidden;
-      }
-
-      &:focus::before {
-        display: none;
-      }
-
-      &:focus::after {
-        position: absolute;
-        z-index: 2;
-        content: '';
-        width: 100%;
-        height: 2px;
-        bottom: -2px;
-        left: 0;
-        background-color: #000;
-        animation: wide 120ms ease-in;
-      }
-
-      &:focus {
-        // &::after {
-        //   color: transparent;
-        // }
-        border-bottom-color: transparent;
+      span {
+        margin-right: 10px;
       }
     }
 
-   
-
-    button {
-      margin-left: 10px;
-      padding: 5px 15px;
-      border-radius: 5px;
-      font-weight: 400;
-      font-size: $h5;
-      border: none;
-      background-color: transparent;
-      color: $bg-color-2;
-      &:hover {
-        color: $font-color-2;
-      }
-      &:disabled {
-        color: rgba($bg-color-2, 0.5);
-      }
-    }
-  }
-
-  /* 3.2 comments list */
-
-  .post-comments-list{
-    font-size: $h5;
-    padding: 10px 0;
-    p {
-      padding: 0.2rem 0 !important;
-    }
-  }
-
-  .post-comment {
-    display: flex;
-    flex-direction: row;
-    padding: 5px 0;
-
-    &>label {
-      position: relative;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background-color: red;
-      margin-right: 10px;
-    }
-
-    .post-comment-content {
-      position: relative;
-      flex: 1;
-      
-      h5 {
-        &>span {font-size: $h5;}
-        &>b {padding: 0 5px; color: #aaa}
-        &>i {
-          font-style: normal; 
-          font-size: $h5; 
-          color: #666;
-          font-weight: 400;
-        }
-      }
-      p {
-        font-size: $h4;
-        word-break: normal;
-        word-wrap: break-word;
-        white-space: pre-wrap;
-      }
-      .post-comment-utils {
-        display: block;
-        margin: 10px 0;
-        color: #666;
-        svg, label {
-          cursor: pointer;
-          margin-right: 5px;
-        }
-        span {
-          margin-right: 10px;
-        }
-      }
-
-      .post-reply-list {
-        .subreply-cover {
-          width: 30px;
-          height: 30px;
-        }
+    .post-reply-list {
+      .subreply-cover {
+        width: 30px;
+        height: 30px;
       }
     }
   }

@@ -243,6 +243,7 @@ form, .outside-form {
   width: 100%;
   font-size: $h2;
   color: $bg-color-2;
+  
 
   .on {
     transform: translateX(0);
@@ -259,8 +260,14 @@ form, .outside-form {
   width: 50%;
   height: 100%;
   background-color: $bg-color-2;
-  border-radius: 5px;
+  border-radius: 3px;
+  transition: transform 100ms ease-in-out;
 }
+
+.disabled .switch-block{
+  background-color: $font-color-2;
+}
+
 
 .switch-option {
   width: 50%;

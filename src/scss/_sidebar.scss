@@ -95,23 +95,17 @@
   }
 }
 
-.side-item {
+.side-item, .side-item-static {
   display: flex;
   align-items: center;
   padding: 8px 0;
   margin: 5px 0;
   color: $font-color-2;
-  cursor: pointer;
-
-  &:hover {
-    color: $bg-color-3;
-  }
   
   div {
     font-size: $h7;
     width: 35px;
     text-align: center;
-    cursor: pointer;
   }
   
 
@@ -119,6 +113,15 @@
     font-size: $h3;
     padding: 0 10px;
     flex: 1;
+  }
+}
+
+.side-item {
+  &:hover {
+    color: $bg-color-3;
+  }
+
+  div, label {
     cursor: pointer;
   }
 }

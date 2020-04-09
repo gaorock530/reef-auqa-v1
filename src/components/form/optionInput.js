@@ -6,8 +6,8 @@ import { faCaretUp, faCaretDown } from '@fortawesome/free-solid-svg-icons'
  * @param {String} props.placeholder
  * @param {Function} props.onChange
  * @param {Function} props.onOption
- * @param {Array} props.options
- * @param {String} props.undefined
+ * @param {Array|String} props.options
+ * @param {Number} props.defaultOption
  * @param {String} props.defaultValue
  * @param {Object} props.icon
  */

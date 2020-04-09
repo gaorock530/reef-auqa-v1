@@ -1,19 +1,16 @@
-import React, { useState, useRef } from 'react'
+import React, { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faThumbsUp, faCaretSquareDown, faPaperPlane} from '@fortawesome/free-solid-svg-icons'
-import cuid from 'cuid'
+import {faThumbsUp, faCaretSquareDown} from '@fortawesome/free-solid-svg-icons'
 import formatTime from '../../../helper/formatTime'
+import Reply from '../../../components/reply'
 // import ContentEditable from 'react-contenteditable'
 
-/**
- *  Problems to be SOLVED !!!!!
- */
 
 export default () => {
   const [comments, setComments] = useState([])
   const [likes, setLikes] = useState([])
 
-  console.log(comments)
+  // console.log(comments)
 
   const onLike = id => {
     const newLikes = [...likes]
@@ -67,8 +64,14 @@ export default () => {
 }
 
 /**
- *  Problems to be SOLVED !!!!!
+ * 
+ * @param {Array} reply list of comments replied
+ * @param {Array} likes all likes that user hitted, indicates like status on a comment
+ * @param {Function} onLike hit like button action
+ * @param {Function} onReply reply comment action
+ * @param {Boolean} subReply if true, this is a sub-reply
  */
+
 function RenderComments ({reply, likes = [], onLike, onReply, subReply}) {
   return reply.map(comment => <RenderComment comment={comment} key={comment.id} onLike={onLike} likes={likes} onReply={onReply} subReply={subReply}/>)
 }
@@ -104,85 +107,3 @@ function RenderComment ({comment, likes = [], onLike, onReply, subReply}) {
   )
 }
 
-/**
- *  Problems to be SOLVED !!!!!
- */
-function Reply ({onReply, subReply = false}) {
-  const placeholder = useRef()
-  const editable = useRef()
-  const replyContent = useRef('')
-
-  const onInput = e => {
-    const content = editable.current.textContent.trim()
-    if (content.length > 500) return e.preventDefault()
-  }
-
-  const onPaste = e => {
-    const content = editable.current.textContent.trim()
-    if (content.length > 500) return e.preventDefault()
-  }
-
-
-  const onKeyUp = e => {
-    const content = editable.current.textContent.trim()
-    if (content.length > 500) return e.preventDefault()
-  }
-
-  const onFocus = e => {
-   
-  }
-
-  const onClick = e => {
-    editable.current.focus({preventScroll: false})
-    if (!editable.current.classList.contains('hold')) editable.current.classList.add('hold')
-  }
-
-  const onBlur = e => {
-    if (editable.current.textContent.trim() !== '' && !editable.current.classList.contains('hold')) editable.current.classList.add('hold')
-    else if (editable.current.textContent.trim() === '' && editable.current.classList.contains('hold')) editable.current.classList.remove('hold')
-  }
-
-  
-
-  const onSubmit = () => {
-    if (editable.current.textContent.trim() === '') return
-
-    const replyObj = {
-      id: cuid.slug(),
-      date: Date.now(),
-      user: 'Magic reply',
-      cover: '',
-      content: editable.current.textContent,
-      like: 0,
-      reply: !subReply?[]:null
-    }
-
-    editable.current.classList.remove('hold')
-    editable.current.textContent = ''
-    if (onReply) onReply(replyObj)
-  }
-
-  return (
-    <div className="post-reply-auth">
-      {!subReply && <label></label>}
-      {/* <input placeholder="发表回复..." maxLength={200} autoComplete="off" onChange={onReplyChange} value={reply} /> */}
-      <div 
-        contentEditable="true" 
-        className="reply-input" 
-        onFocus={onFocus} 
-        onBlur={onBlur} 
-        onKeyUp={onKeyUp} 
-        onClick={onClick}
-        ref={editable}
-        onInput={onInput}
-        onPaste={onPaste}
-        // onTouchStart={onClick}
-        suppressContentEditableWarning={true}
-      >
-        {/* {placeholder} */}
-        {/* <div ref={placeholder} className="placeholder"></div> */}
-      </div>
-      <button onClick={onSubmit} disabled={replyContent==='' || replyContent === placeholder}><FontAwesomeIcon icon={faPaperPlane} size="2x"/></button>
-    </div>
-  )
-}

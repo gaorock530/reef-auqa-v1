@@ -1,0 +1,108 @@
+
+.mytitle {
+  .title-item {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgba($bg-color-2, 0.2);
+    min-height: 110px;
+    overflow: hidden;
+    cursor: default;
+
+    h5 {
+      position: relative;
+      color: $bg-color-2;
+      font-weight: normal;
+      font-size: 1.6rem;
+      padding: 0;
+      margin: 0;
+      z-index: 2;
+    }
+
+    label {
+      position: absolute;
+      top: 3px;
+      right: 3px;
+    }
+
+    &:before, &:after {
+      content: '';
+      position: absolute;
+      width: 35%;
+      height: 10px;
+      z-index: 0;
+    }
+    &:before {
+      top: 0;
+      transform: rotate(-45DEG) translate(-95%, -500%);
+    }
+    &:after {
+      bottom: 0;
+      transform: rotate(-45DEG) translate(95%, 500%);
+    }
+  }
+
+  // overall
+  .title-type-1 {
+    label {
+      color: rgba($font-color-5, 0.9)
+    }
+    &:before, &:after {
+      background-color: rgba($font-color-5, 0.3);
+    }
+  }
+  // tank
+  .title-type-2 {
+    label {
+      color: rgba($font-color-3, 0.7)
+    }
+    &:before, &:after {
+      background-color: rgba($font-color-3, 0.3);
+    }
+  }
+  // post
+  .title-type-3 {
+    label {
+      color: rgba($Neon-facial-portraits-5-hex, 1)
+    }
+    &:before, &:after {
+      background-color: rgba($Neon-facial-portraits-5-hex, 0.3);
+    }
+  }
+  // comptition 
+  .title-type-4 {
+    label {
+      color: rgba(red, 0.6)
+    }
+    &:before, &:after {
+      background-color: rgba(red, 0.3);
+    }
+  }
+
+
+  .title-info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    color: #fff;
+    background-color: rgba(#000, 0.9);
+    transition: opacity 100ms ease-in-out;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+
+    p {
+      font-size: $h5;
+      padding: 10px;
+    }
+  }
+
+  .title-item:hover .title-info {
+    opacity: 1;
+  }
+  
+}

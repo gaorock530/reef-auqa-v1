@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react'
 import { Redirect } from 'react-router-dom'
-import Body from '../body'
+
 import {Helmet} from "react-helmet"
 import Quill from 'quill'
 import Input from '../../components/form/input'
@@ -168,7 +168,7 @@ export default () => {
   }
 
   return published? <Redirect to="/blogs"/>:(
-    <Body>
+    <>
       <Helmet>
         <title>{title}</title>
         <meta name="description vertical" content={`ReefAqua ${title}`} />
@@ -184,6 +184,6 @@ export default () => {
         <button type="button" className="post-preview" onClick={onPreview} disabled={process}>预览</button>
         <button type="submit" disabled={process}>发布分享</button>
       </form>
-    </Body>
+    </>
   )
 }

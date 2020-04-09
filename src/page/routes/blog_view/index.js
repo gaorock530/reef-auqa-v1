@@ -1,5 +1,4 @@
 import React,{useEffect, useState, useRef} from 'react'
-import Body from '../../body'
 import {Helmet} from "react-helmet"
 import {useParams} from 'react-router-dom'
 import {editConfigReadOnly} from '../../../helper/constVar'
@@ -35,10 +34,15 @@ export default () => {
       }
     }
     run()
+
+    return () => {
+      blogContent.current = undefined
+    }
+    
   }, [id])
 
-  return notFound?<Body><span>Not Found</span></Body>:(
-    <Body>
+  return notFound?<span>Not Found</span>:(
+    <>
       <Helmet>
         <title>{title}</title>
         <meta name="description" content={`ReefAqua ${title}`} />
@@ -48,6 +52,6 @@ export default () => {
         <div ref={blogContainer} className="post-content"></div>
         <Comments />
       </div>
-    </Body>
+    </>
   )
 }

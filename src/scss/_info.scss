@@ -1,0 +1,149 @@
+.info-nav {
+  display: flex;
+  align-items: flex-end;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba($bg-color-2, 0.2);
+  margin-bottom: 10px;
+  font-size: $h5;
+
+  span {
+    flex: 1;
+    
+    b, i {font-weight: normal; font-style: normal;}
+    i {
+      cursor: pointer;
+    }
+    svg {
+      margin: 0 3px;
+    }
+  }
+
+  .info-switch {
+    margin: 0;
+    width: 80px;
+    height: 2rem;
+    font-size: $h5;
+  }
+}
+
+.info-list {
+  
+  img {
+    // text-align: center;
+    object-fit: contain;
+    object-position: center;
+    width: 100%;
+    margin: 0 auto;
+    height: 100%;
+  }
+
+  h3 {
+    text-align: center;
+    padding: 10px 0;
+  }
+}
+
+.info-content {
+  position: relative;
+  min-height: 100vh;
+
+  .info-main {
+    position: relative;
+  }
+
+  .info-wrapper {
+    display: inline-block;
+    width: 50%;
+  }
+
+  .info-content-cover {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    border: 2px solid $font-color-2;
+    border-radius: 5px;
+  }
+
+  .info-detail {
+    position: absolute;
+    padding: 0 10px;
+    top: 0;
+    height: 100%;
+    h3 {
+      margin: 5px 0;
+    }
+    h5 {
+      span {display: block;}
+      color: $bg-color-2;
+      font-weight: normal;
+      font-size: $h8;
+      padding-bottom: 5px;
+    }
+
+    li {
+      display: inline-block;
+      width: 50%;
+      font-size: $h5;
+      margin: 2px 0;
+    }
+  }
+
+  .info-gallary {
+    margin: 10px 0;
+    border: 2px solid $font-color-2;
+    border-radius: 5px;
+  }
+
+  .info-paragragh {
+    font-size: $h5;
+    line-height: 1.8rem;
+    p {
+      margin: 20px 0;
+    }
+  }
+
+  .info-comments {
+    
+    h3 {
+      padding: 10px 0;
+      border-bottom: 1px solid rgba($bg-color-2, 0.2);
+    }
+  }
+
+  .info-comment {
+    padding: 15px 0;
+  }
+
+  .info-comments-like {
+    color: #666;
+    cursor: pointer;
+    margin-left: 10px;
+
+    svg {
+      margin-right: 5px;
+    }
+  }
+}
+
+@media screen and (max-width: 800px) { 
+  .info-content {
+    .info-wrapper {
+      width: 100%;
+    }
+    .info-detail {
+      position: relative;
+      padding: 0;
+    }
+  }
+}
+
+@media screen and (max-width: 374px) { 
+  .info-content {
+    .info-detail {
+      li {
+        display: block;
+        width: 100%;
+      }
+    }
+  }
+}

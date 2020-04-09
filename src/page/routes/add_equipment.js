@@ -1,7 +1,6 @@
 import React, {useState} from 'react'
 import {useParams} from 'react-router-dom'
 import {Helmet} from 'react-helmet'
-import Body from '../body'
 import Select from '../../components/form/select'
 // import cuid from 'cuid'
 import layerData from '../../helper/gearData'
@@ -25,7 +24,7 @@ export default () => {
   }
 
   return (
-    <Body>
+    <>
       <Helmet>
         <title>{label}</title>
         <meta name="description" content={`ReefAqua ${label}`} />
@@ -36,7 +35,7 @@ export default () => {
         <AddItem onAddItem={onAddItem} layerData={layerData} label={label}/>
         {state.length>0 && <AddForm data={state} onAdd={onAdd} onDel={onDel} onChange={onChange} onSubmit={onSubmit}/>}
       </div>
-    </Body>
+    </>
   )
 }
 

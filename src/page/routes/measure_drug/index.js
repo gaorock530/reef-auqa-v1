@@ -1,7 +1,6 @@
 import React, {useState, useRef} from 'react'
 import {Helmet} from "react-helmet";
 import {measureDefaultOption, metrics, convert as conv} from '../../../helper/constVar'
-import Body from '../../body'
 import Option from '../../../components/form/optionInput'
 import Static from '../../../components/form/static'
 import Select from '../../../components/form/select'
@@ -57,7 +56,7 @@ export default () => {
 
 
   return (
-    <Body>
+    <>
       <Helmet>
         <title>药剂添加计算</title>
         <meta name="description" content="ReefAqua 药剂添加计算" />
@@ -88,6 +87,6 @@ export default () => {
       </div>
       
       
-    </Body>
+    </>
   )
 }
